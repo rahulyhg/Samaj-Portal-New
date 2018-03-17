@@ -44,7 +44,9 @@ angular.module('samajPortalApp')
     searchKeys[21]='sangh';
     searchKeys[22]='expertise';
 
-    for(var i=0;i<23;i++){
+    searchKeys[23]='bloodGroup';
+    searchKeys[24]='vadhuVarMelava';
+    for(var i=0;i<searchKeys.length;i++){
         vm.search[i]={};
         vm.search[i].key=searchKeys[i];
     }
@@ -63,7 +65,7 @@ angular.module('samajPortalApp')
       });
     };
     vm.all = function () {
-        Rest.browseAll.get({}, function (data) {
+        /*Rest.browseAll.get( function (data) {
           vm.searchData=data;
           vm.pageNumbers=[];
           for(var j=0;j<data.page.totalPages;j++){
@@ -73,11 +75,22 @@ angular.module('samajPortalApp')
         }, function (error) {
           console.log('error',error);
           vm.searchData={};
+        });*/
+        var searchObj={'filter':[]};
+        Rest.browse.save(searchObj, function (data) {
+          vm.searchData=data;
+          vm.pageNumbers=[];
+          for(var j=0;j<data.page.totalPages;j++){
+              vm.pageNumbers[j]=j;
+          }
+          console.log('data',data);
+        }, function (error) {
+          console.log('error',error);
         });
     };
 
     vm.reset = function () {
-        
+        vm.search={};
     };
 
     vm.paginate = function (pageNumber) {

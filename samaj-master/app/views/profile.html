@@ -420,9 +420,59 @@
           </div>
 
 
+          <div class="row">
+              <div class="offset-md-2 col-md-2 field-label-responsive">
+                <label for="Profession">About Family</label>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon" style="width: 2.6rem">
+
+                    </div>
+                    <input  ng-disabled="!profile.edit" type="string" style="height:70px" name="aboutFamily" ng-model="profile.profile.aboutFamily" class="form-control"
+                      id="aboutFamily" placeholder="About Family">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div  class="row">
+              <div class="offset-md-2 col-md-2 field-label-responsive">
+                <label for="Profession">About Parents</label>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon" style="width: 2.6rem">
+
+                    </div>
+                    <input  ng-disabled="!profile.edit" type="string" style="height:70px" name="aboutParents" ng-model="profile.profile.aboutParents" class="form-control"
+                      id="aboutParents" placeholder="About Parents">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="offset-md-2 col-md-2 field-label-responsive">
+                <label for="Profession">About Brother and Sister</label>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon" style="width: 2.6rem">
+
+                    </div>
+                    <input  ng-disabled="!profile.edit" type="string" style="height:70px" name="aboutBrotherSister" ng-model="profile.profile.aboutBrotherSister" class="form-control"
+                      id="aboutBrotherSister" placeholder="About brother and sister">
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
-          <div class="row ">
+          <div ng-disabled="!profile.edit" class="row ">
             <div class="offset-md-2 col-md-2 field-label-responsive ">
               <label for="name ">Father's Name</label>
             </div>
@@ -980,7 +1030,7 @@
           </div>
           <div ng-if="profile.self" class="row text-white py-4">
             <div class="offset-md-5 col-md-3">
-              <button ng-disabled="profileForm.$invalid" title="Please fill the required fields in the form then button will be enabled."
+              <button  title="Please fill the required fields in the form then button will be enabled."
                 type="button" ng-click="profile.save(profileForm);" class="btn btn-primary">
                 <i class="fa fa-user-plus"></i> Save</button>
               <!--button ng-show="!profileForm.$error" type="submit" class="btn btn-primary">

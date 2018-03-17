@@ -91,8 +91,8 @@ public class Person {
 	@Column(name = "HEIGHT")
     private String height;
 	
-	@Column(name = "WEIGHT")
-    private String weight;
+	@Column(name = "BLOOD_GROUP")
+    private String bloodGroup;
 	
 	@Column(name = "HIGHEST_QUALIFICATION")
     private String highestQualification;
@@ -173,6 +173,15 @@ public class Person {
     private Document image;
     
     
+    @Column(name = "ABOUT_FAMILY")
+    private String aboutFamily;
+    
+    
+    @Column(name = "ABOUT_BRO_SIS")
+    private String aboutBrotherSister;
+    
+    @Column(name = "ABOUT_PARENTS")
+    private String aboutParents;
     
     public String getVadhuVarMelava() {
 		return vadhuVarMelava;
@@ -429,12 +438,14 @@ public class Person {
 		this.height = height;
 	}
 
-	public String getWeight() {
-		return weight;
+	
+
+	public String getBloodGroup() {
+		return bloodGroup;
 	}
 
-	public void setWeight(String weight) {
-		this.weight = weight;
+	public void setBloodGroup(String bloodGroup) {
+		this.bloodGroup = bloodGroup;
 	}
 
 	public String getHighestQualification() {
@@ -525,6 +536,30 @@ public class Person {
 
 	public void setCurrentAddress(Address currentAddress) {
 		this.currentAddress = currentAddress;
+	}
+	
+	public String getAboutFamily() {
+		return aboutFamily;
+	}
+
+	public void setAboutFamily(String aboutFamily) {
+		this.aboutFamily = aboutFamily;
+	}
+
+	public String getAboutBrotherSister() {
+		return aboutBrotherSister;
+	}
+
+	public void setAboutBrotherSister(String aboutBrotherSister) {
+		this.aboutBrotherSister = aboutBrotherSister;
+	}
+
+	public String getAboutParents() {
+		return aboutParents;
+	}
+
+	public void setAboutParents(String aboutParents) {
+		this.aboutParents = aboutParents;
 	}
 
 	@Override

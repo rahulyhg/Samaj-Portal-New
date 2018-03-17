@@ -78,6 +78,7 @@ angular.module('samajPortalApp')
           window.alert('profile updated successfully');
           vm.edit = false;
           console.log('profile', data);
+          vm.getProfile();
         }, function () {
           console.log('Error occured while getting profile');
         });
@@ -115,13 +116,26 @@ angular.module('samajPortalApp')
           'filter': filter
         };
         Rest.browse.save(searchObj, function (data) {
+          data = filterSelf(data);
           vm.searchDataSibling = data;
         }, function (error) {
           console.log('error', error);
         });
       }
     };
-
+    var filterSelf = function (data) {
+      var dataFilterd={};
+      dataFilterd._embedded={};
+      dataFilterd._embedded.personList=[];
+      if (data.page.totalElements > 0) {
+        for (var i = 0; i < data._embedded.personList.length; i++) {
+          if (data._embedded.personList[i].id !== vm.profile.id) {
+            dataFilterd._embedded.personList.push(data._embedded.personList[i]);
+          }
+        }
+      }
+      return dataFilterd;
+    };
     vm.getChildrenInformation = function () {
       if (vm.profile.firstName && vm.profile.middleName && vm.profile.lastName) {
         var filter = [];
@@ -138,7 +152,7 @@ angular.module('samajPortalApp')
         var fatherLastQuery = {};
         fatherLastQuery.key = 'fatherLastName';
         fatherLastQuery.operator = 'equal';
-        fatherLastQuery.value = vm.profile.LastName;
+        fatherLastQuery.value = vm.profile.lastName;
 
         filter.push(fatherFirstQuery);
         filter.push(fatherMiddleQuery);
@@ -149,6 +163,7 @@ angular.module('samajPortalApp')
           'filter': filter
         };
         Rest.browse.save(searchObj, function (data) {
+          data = filterSelf(data);
           vm.searchChildrenData = data;
         }, function (error) {
           console.log('error', error);
@@ -182,105 +197,116 @@ angular.module('samajPortalApp')
         var searchObj = {
           'filter': filter
         };
-
+        //get grand father
         Rest.browse.save(searchObj, function (data) {
-          var filter = [];
-          var fatherFirstQuery = {};
-          fatherFirstQuery.key = 'firstName';
-          fatherFirstQuery.operator = 'equal';
-          fatherFirstQuery.value = data.fatherFirstName;
+          if (data.fatherFirstName && data.fatherMiddleName && data.fatherLastName) {
+            data = filterSelf(data);
+            var filter = [];
+            var fatherFirstQuery = {};
+            fatherFirstQuery.key = 'firstName';
+            fatherFirstQuery.operator = 'equal';
+            fatherFirstQuery.value = data.fatherFirstName;
 
-          var fatherMiddleQuery = {};
-          fatherMiddleQuery.key = 'middleName';
-          fatherMiddleQuery.operator = 'equal';
-          fatherMiddleQuery.value = data.fatherMiddleName;
+            var fatherMiddleQuery = {};
+            fatherMiddleQuery.key = 'middleName';
+            fatherMiddleQuery.operator = 'equal';
+            fatherMiddleQuery.value = data.fatherMiddleName;
 
-          var fatherLastQuery = {};
-          fatherLastQuery.key = 'lastName';
-          fatherLastQuery.operator = 'equal';
-          fatherLastQuery.value = data.fatherLastName;
+            var fatherLastQuery = {};
+            fatherLastQuery.key = 'lastName';
+            fatherLastQuery.operator = 'equal';
+            fatherLastQuery.value = data.fatherLastName;
 
-          filter.push(fatherFirstQuery);
-          filter.push(fatherMiddleQuery);
-          filter.push(fatherLastQuery);
+            filter.push(fatherFirstQuery);
+            filter.push(fatherMiddleQuery);
+            filter.push(fatherLastQuery);
 
 
-          var searchObj = {
-            'filter': filter
-          };
-          Rest.browse.save(searchObj, function (data) {
-            vm.searchDataPaternalGrandFather = data;
-          }, function (error) {
-            console.log('error', error);
-          });
+            var searchObj = {
+              'filter': filter
+            };
+            Rest.browse.save(searchObj, function (data) {
+              data = filterSelf(data);
+              vm.searchDataPaternalGrandFather = data;
+            }, function (error) {
+              console.log('error', error);
+            });
+          }
+        }, function (error) {
+          console.log('error', error);
+        });
+        //get grand mother
+        Rest.browse.save(searchObj, function (data) {
+          if (data.motherFirstName && data.motherMiddleName && data.motherLastName) {
+            var filter = [];
+            var motherFirstQuery = {};
+            motherFirstQuery.key = 'firstName';
+            motherFirstQuery.operator = 'equal';
+            motherFirstQuery.value = data.motherFirstName;
+
+            var motherMiddleQuery = {};
+            motherMiddleQuery.key = 'middleName';
+            motherMiddleQuery.operator = 'equal';
+            motherMiddleQuery.value = data.motherMiddleName;
+
+            var motherLastQuery = {};
+            motherLastQuery.key = 'lastName';
+            motherLastQuery.operator = 'equal';
+            motherLastQuery.value = data.motherLastName;
+
+            filter.push(motherFirstQuery);
+            filter.push(motherMiddleQuery);
+            filter.push(motherLastQuery);
+
+
+            var searchObj = {
+              'filter': filter
+            };
+            Rest.browse.save(searchObj, function (data) {
+              data = filterSelf(data);
+              vm.searchDataPaternalGrandMother = data;
+            }, function (error) {
+              console.log('error', error);
+            });
+          }
         }, function (error) {
           console.log('error', error);
         });
 
+        //paternal uncle
         Rest.browse.save(searchObj, function (data) {
-          var filter = [];
-          var motherFirstQuery = {};
-          motherFirstQuery.key = 'firstName';
-          motherFirstQuery.operator = 'equal';
-          motherFirstQuery.value = data.motherFirstName;
+          if (data.fatherFirstName && data.fatherMiddleName && data.fatherLastName) {
+            var filter = [];
+            var fatherFirstQuery = {};
+            fatherFirstQuery.key = 'fatherFirstName';
+            fatherFirstQuery.operator = 'equal';
+            fatherFirstQuery.value = data.fatherFirstName;
 
-          var motherMiddleQuery = {};
-          motherMiddleQuery.key = 'middleName';
-          motherMiddleQuery.operator = 'equal';
-          motherMiddleQuery.value = data.motherMiddleName;
+            var fatherMiddleQuery = {};
+            fatherMiddleQuery.key = 'fatherMiddleName';
+            fatherMiddleQuery.operator = 'equal';
+            fatherMiddleQuery.value = data.fatherMiddleName;
 
-          var motherLastQuery = {};
-          motherLastQuery.key = 'lastName';
-          motherLastQuery.operator = 'equal';
-          motherLastQuery.value = data.motherLastName;
+            var fatherLastQuery = {};
+            fatherLastQuery.key = 'fatherLastName';
+            fatherLastQuery.operator = 'equal';
+            fatherLastQuery.value = data.fatherLastName;
 
-          filter.push(motherFirstQuery);
-          filter.push(motherMiddleQuery);
-          filter.push(motherLastQuery);
-
-
-          var searchObj = {
-            'filter': filter
-          };
-          Rest.browse.save(searchObj, function (data) {
-            vm.searchDataPaternalGrandMother = data;
-          }, function (error) {
-            console.log('error', error);
-          });
-        }, function (error) {
-          console.log('error', error);
-        });
-
-        Rest.browse.save(searchObj, function (data) {
-          var filter = [];
-          var fatherFirstQuery = {};
-          fatherFirstQuery.key = 'fatherFirstName';
-          fatherFirstQuery.operator = 'equal';
-          fatherFirstQuery.value = data.fatherFirstName;
-
-          var fatherMiddleQuery = {};
-          fatherMiddleQuery.key = 'fatherMiddleName';
-          fatherMiddleQuery.operator = 'equal';
-          fatherMiddleQuery.value = data.fatherMiddleName;
-
-          var fatherLastQuery = {};
-          fatherLastQuery.key = 'fatherLastName';
-          fatherLastQuery.operator = 'equal';
-          fatherLastQuery.value = data.fatherLastName;
-
-          filter.push(fatherFirstQuery);
-          filter.push(fatherMiddleQuery);
-          filter.push(fatherLastQuery);
+            filter.push(fatherFirstQuery);
+            filter.push(fatherMiddleQuery);
+            filter.push(fatherLastQuery);
 
 
-          var searchObj = {
-            'filter': filter
-          };
-          Rest.browse.save(searchObj, function (data) {
-            vm.searchDataPaternal = data;
-          }, function (error) {
-            console.log('error', error);
-          });
+            var searchObj = {
+              'filter': filter
+            };
+            Rest.browse.save(searchObj, function (data) {
+              data = filterSelf(data);
+              vm.searchDataPaternal = data;
+            }, function (error) {
+              console.log('error', error);
+            });
+          }
         }, function (error) {
           console.log('error', error);
         });
@@ -314,103 +340,115 @@ angular.module('samajPortalApp')
           'filter': vm.filter
         };
         Rest.browse.save(searchObj, function (data) {
-          var filter = [];
-          var fatherFirstQuery = {};
-          fatherFirstQuery.key = 'firstName';
-          fatherFirstQuery.operator = 'equal';
-          fatherFirstQuery.value = data.fatherFirstName;
+          if (data.fatherFirstName && data.fatherMiddleName && data.fatherLastName) {
+            data = filterSelf(data);
+            var filter = [];
+            var fatherFirstQuery = {};
+            fatherFirstQuery.key = 'firstName';
+            fatherFirstQuery.operator = 'equal';
+            fatherFirstQuery.value = data.fatherFirstName;
 
-          var fatherMiddleQuery = {};
-          fatherMiddleQuery.key = 'middleName';
-          fatherMiddleQuery.operator = 'equal';
-          fatherMiddleQuery.value = data.fatherMiddleName;
+            var fatherMiddleQuery = {};
+            fatherMiddleQuery.key = 'middleName';
+            fatherMiddleQuery.operator = 'equal';
+            fatherMiddleQuery.value = data.fatherMiddleName;
 
-          var fatherLastQuery = {};
-          fatherLastQuery.key = 'lastName';
-          fatherLastQuery.operator = 'equal';
-          fatherLastQuery.value = data.fatherLastName;
+            var fatherLastQuery = {};
+            fatherLastQuery.key = 'lastName';
+            fatherLastQuery.operator = 'equal';
+            fatherLastQuery.value = data.fatherLastName;
 
-          filter.push(fatherFirstQuery);
-          filter.push(fatherMiddleQuery);
-          filter.push(fatherLastQuery);
+            filter.push(fatherFirstQuery);
+            filter.push(fatherMiddleQuery);
+            filter.push(fatherLastQuery);
 
 
-          var searchObj = {
-            'filter': filter
-          };
-          Rest.browse.save(searchObj, function (data) {
-            vm.searchDatMaternalGrandFather = data;
-          }, function (error) {
-            console.log('error', error);
-          });
+            var searchObj = {
+              'filter': filter
+            };
+            Rest.browse.save(searchObj, function (data) {
+              data = filterSelf(data);
+              vm.searchDatMaternalGrandFather = data;
+            }, function (error) {
+              console.log('error', error);
+            });
+          }
         }, function (error) {
           console.log('error', error);
         });
 
         Rest.browse.save(searchObj, function (data) {
-          var filter = [];
-          var motherFirstQuery = {};
-          motherFirstQuery.key = 'firstName';
-          motherFirstQuery.operator = 'equal';
-          motherFirstQuery.value = data.motherFirstName;
+          if (data.motherFirstName && data.motherMiddleName && data.motherLastName) {
+            data = filterSelf(data);
+            var filter = [];
+            var motherFirstQuery = {};
+            motherFirstQuery.key = 'firstName';
+            motherFirstQuery.operator = 'equal';
+            motherFirstQuery.value = data.motherFirstName;
 
-          var motherMiddleQuery = {};
-          motherMiddleQuery.key = 'middleName';
-          motherMiddleQuery.operator = 'equal';
-          motherMiddleQuery.value = data.motherMiddleName;
+            var motherMiddleQuery = {};
+            motherMiddleQuery.key = 'middleName';
+            motherMiddleQuery.operator = 'equal';
+            motherMiddleQuery.value = data.motherMiddleName;
 
-          var motherLastQuery = {};
-          motherLastQuery.key = 'lastName';
-          motherLastQuery.operator = 'equal';
-          motherLastQuery.value = data.motherLastName;
+            var motherLastQuery = {};
+            motherLastQuery.key = 'lastName';
+            motherLastQuery.operator = 'equal';
+            motherLastQuery.value = data.motherLastName;
 
-          filter.push(motherFirstQuery);
-          filter.push(motherMiddleQuery);
-          filter.push(motherLastQuery);
+            filter.push(motherFirstQuery);
+            filter.push(motherMiddleQuery);
+            filter.push(motherLastQuery);
 
 
-          var searchObj = {
-            'filter': filter
-          };
-          Rest.browse.save(searchObj, function (data) {
-            vm.searchDataMaternalGrandMother = data;
-          }, function (error) {
-            console.log('error', error);
-          });
+            var searchObj = {
+              'filter': filter
+            };
+            Rest.browse.save(searchObj, function (data) {
+              data = filterSelf(data);
+              vm.searchDataMaternalGrandMother = data;
+            }, function (error) {
+              console.log('error', error);
+            });
+          }
         }, function (error) {
           console.log('error', error);
         });
 
         Rest.browse.save(searchObj, function (data) {
-          var filter = [];
-          var fatherFirstQuery = {};
-          fatherFirstQuery.key = 'fatherFirstName';
-          fatherFirstQuery.operator = 'equal';
-          fatherFirstQuery.value = data.fatherFirstName;
+          if (data.fatherFirstName && data.fatherMiddleName && data.fatherLastName) {
+            data = filterSelf(data);
+            var filter = [];
+            var fatherFirstQuery = {};
+            fatherFirstQuery.key = 'fatherFirstName';
+            fatherFirstQuery.operator = 'equal';
+            fatherFirstQuery.value = data.fatherFirstName;
 
-          var fatherMiddleQuery = {};
-          fatherMiddleQuery.key = 'fatherMiddleName';
-          fatherMiddleQuery.operator = 'equal';
-          fatherMiddleQuery.value = data.fatherMiddleName;
+            var fatherMiddleQuery = {};
+            fatherMiddleQuery.key = 'fatherMiddleName';
+            fatherMiddleQuery.operator = 'equal';
+            fatherMiddleQuery.value = data.fatherMiddleName;
 
-          var fatherLastQuery = {};
-          fatherLastQuery.key = 'fatherLastName';
-          fatherLastQuery.operator = 'equal';
-          fatherLastQuery.value = data.fatherLastName;
+            var fatherLastQuery = {};
+            fatherLastQuery.key = 'fatherLastName';
+            fatherLastQuery.operator = 'equal';
+            fatherLastQuery.value = data.fatherLastName;
 
-          filter.push(fatherFirstQuery);
-          filter.push(fatherMiddleQuery);
-          filter.push(fatherLastQuery);
+            filter.push(fatherFirstQuery);
+            filter.push(fatherMiddleQuery);
+            filter.push(fatherLastQuery);
 
 
-          var searchObj = {
-            'filter': filter
-          };
-          Rest.browse.save(searchObj, function (data) {
-            vm.searchDataMaternal = data;
-          }, function (error) {
-            console.log('error', error);
-          });
+            var searchObj = {
+              'filter': filter
+            };
+            Rest.browse.save(searchObj, function (data) {
+              data = filterSelf(data);
+              vm.searchDataMaternal = data;
+            }, function (error) {
+              console.log('error', error);
+            });
+          }
         }, function (error) {
           console.log('error', error);
         });

@@ -31,11 +31,11 @@ public class UserSpecification implements Specification<Person> {
 			return builder.lessThanOrEqualTo(root.<String>get(criteria.getKey()), criteria.getValue().toString());
 		} else if (criteria.getOperator().equalsIgnoreCase("=") || criteria.getOperator().equalsIgnoreCase("equal")) {
 			return builder.equal(root.get(criteria.getKey()), criteria.getValue());
-		} else if (criteria.getOperator().equalsIgnoreCase("!=") || criteria.getOperator().equalsIgnoreCase("equal")) {
+		} else if (criteria.getOperator().equalsIgnoreCase("!=") || criteria.getOperator().equalsIgnoreCase("not equal")) {
 			return builder.notEqual(root.get(criteria.getKey()), criteria.getValue());
 		} else if (criteria.getOperator().equalsIgnoreCase("not like")) {
 			return builder.notLike(root.<String>get(criteria.getKey()), "%" + criteria.getValue() + "%");
-		} else if (criteria.getOperator().equalsIgnoreCase("equal")) {
+		} else if (criteria.getOperator().equalsIgnoreCase("like")) {
 			return builder.like(root.<String>get(criteria.getKey()), "%" + criteria.getValue() + "%");
 		}
 		return null;

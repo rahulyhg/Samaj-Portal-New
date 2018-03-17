@@ -284,8 +284,7 @@
               </div>
             </div>
             <div class="col-md-2">
-              <select class="form-control" ng-model="browse.search[11].value" name="higestQualification"
-                id="higestQualification">
+              <select class="form-control" ng-model="browse.search[11].value" name="higestQualification" id="higestQualification">
                 <option value=" ">- </option>
                 <option value="-----Professional Degrees----- " id="cbf649 ">-----Professional Degrees-----</option>
                 <option value="BAMS " id="cbf650 ">BAMS</option>
@@ -559,6 +558,61 @@
                 </div>
               </div>
             </div>
+
+            <div class="col-md-2 " style="text-align:right">
+              <label for="Marital Status">bloodGroup</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[23].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select name="bloodGroup" ng-model="browse.search[23].value" required class="form-control " id="bloodGroup ">
+                    <option value="">-</option>
+                    <option value="O-positive">O-positive</option>
+                    <option value="O-negative">O-negative</option>
+                    <option value="A-positive">A-positive</option>
+                    <option value="A-negative">A-negative</option>
+                    <option value="B-positive">B-positive</option>
+                    <option value="B-negative">B-negative</option>
+                    <option value="Mumbai">AB-positive</option>
+                    <option value="Amalner">AB-negative</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mx-0">
+            <div class="col-md-2 " style="text-align:right">
+              <label for="Marital Status">Marimonial Profile</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[24].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <select name="bloodGroup" ng-model="browse.search[24].value" required class="form-control " id="bloodGroup ">
+                  <option value="">-</option>
+                  <option value="true">Yes</option>
+                  <option value="false">No</option>
+                </select>
+              </div>
+            </div>
           </div>
         </div>
         <!--end of search panel-->
@@ -567,7 +621,7 @@
             <button type="button" ng-click="browse.searchRecord()" class="btn btn-light">Search</button>
           </div>
           <div class="offset-md-1">
-            <button type="button" ng-click="browse.reset()" class="btn btn-light">Cancal</button>
+            <button type="button" ng-click="browse.reset()" class="btn btn-light">reset</button>
           </div>
           <div class="offset-md-1">
             <button type="button" ng-click="browse.all()" class="btn btn-light">view all</button>
@@ -587,7 +641,9 @@
           </thead>
           <tbody>
             <tr ng-repeat="person in browse.searchData._embedded.personList">
-              <td><a href="#!/profile/{{person.email}}">{{person.id}}</a></td>
+              <td>
+                <a href="#!/profile/{{person.email}}">{{person.id}}</a>
+              </td>
               <td>{{person.firstName}}</td>
               <td>{{person.middleName}}</td>
               <td>{{person.lastName}}</td>
@@ -606,4 +662,3 @@
     </div>
   </div>
 </div>
-
