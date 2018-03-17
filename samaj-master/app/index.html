@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/components-font-awesome/css/fontawesome-all.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+
+<body ng-app="samajPortalApp">
+  <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+  <!-- Add your site or application content here -->
+
+  <div class="header  top-bar-bg">
+    <div class="fluid-container">
+      <nav class="navbar navbar-toggleable-md navbar-light" ng-controller="HeaderCtrl as header">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="text-white navbar-brand" href="#">
+          <img src="/images/logo_2.png" />
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top:-80px">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link text-white " href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item" ng-show="header.isLogin()">
+              <a class="nav-link text-white" ng-href="#!/browse">Browse</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" ng-href="#!/register/false">Member Registration</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" ng-href="#!/register/true">Matrimonial Registration</a>
+            </li>
+
+            <li class="nav-item" ng-show="header.isLogin()">
+              <a class="nav-link text-white" ng-href="#!/profile/{{header.getId()}}">My Profile</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#!/contacts">Contact us</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <span class="text-white px-4" ng-show="header.isLogin()">Logged in as
+              <a ng-href="#!/profile/{{header.getId()}}">{{ header.getId() }}</a>
+            </span>
+            <a ng-href="#!login">
+              <button ng-show="!header.isLogin()" class="btn btn-outline-warn my-2 my-sm-0">Login</button>
+            </a>
+            <button ng-show="header.isLogin()" ng-click="header.logout()" class="btn btn-outline-warn my-2 my-sm-0">Logout</button>
+          </form>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="fluid-container">
+    <div ng-view=""></div>
+  </div>
+
+  <footer>
+    <div class="foot1">
+      <p style="text-align: center;">Office Address:
+        <strong>The LightHouse IT Solutions</strong>, A2, Chaudhari Plaza, Rajiv Nagar, Nashik - 422 009, Ph: 73874 66 999
+        <br>Website Powered by
+        <a target="_blank" href="http://thelighthouseitsolutions.com/">
+          <strong>The LightHouse IT Solutions</strong>
+        </a>
+      </p>
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+  <script>
+    ! function (A, n, g, u, l, a, r) {
+      A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
+          (A[l].q = A[l].q || []).push(arguments)
+        }, A[l].l = +new Date, a = n.createElement(g),
+        r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
+    }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+
+  </script>
+
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/tether/dist/js/tether.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+  <script src="bower_components/ngstorage/ngStorage.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/controllers/about.js"></script>
+  <script src="scripts/controllers/login.js"></script>
+  <script src="scripts/services/rest.js"></script>
+  <script src="scripts/controllers/register.js"></script>
+  <script src="scripts/controllers/header.js"></script>
+  <script src="scripts/controllers/profile.js"></script>
+  <script src="scripts/services/documentService.js"></script>
+  <script src="scripts/controllers/browse.js"></script>
+  <script src="scripts/controllers/home.js"></script>
+  <script src="scripts/controllers/contacts.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>

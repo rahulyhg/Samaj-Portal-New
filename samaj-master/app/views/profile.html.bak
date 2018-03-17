@@ -1,0 +1,665 @@
+<div class="fluid-container">
+    <div class="offset-md-1 col-md-10">
+        <div class="form-horizontal card" style="margin-top:30px">
+            <div class="row card-header text-white" style="margin:0px;background-color:#A01755">
+                <h3 class="card-title">Profile</h3>
+                <hr>
+            </div>
+            <div class="card-body">
+                <div class="offset-md-4 col-md-3">
+                    <img src="/images/img.jpg" class="rounded-circle" alt="Cinque Terre" width="304" height="236">
+                </div>
+                <div class="row" style="margin-top:30px">
+                    <div class="offset-md-2 col-md-2 field-label-responsive">
+                        <label for="name">First Name</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="" required autofocus>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-control-feedback">
+                            <span class="text-danger align-middle">
+                                        <!-- Put name validation error messages here -->
+                                    </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-md-2 col-md-2 field-label-responsive">
+                        <label for="name">Middle Name</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="" required autofocus>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-control-feedback">
+                            <span class="text-danger align-middle">
+                                            <!-- Put name validation error messages here -->
+                                        </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-md-2 col-md-2 field-label-responsive">
+                        <label for="name">Last Name</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="" required autofocus>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-control-feedback">
+                            <span class="text-danger align-middle">
+                                            <!-- Put name validation error messages here -->
+                                        </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-md-2 col-md-2 field-label-responsivse">
+                        <label for="email">E-Mail Address</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+                                <input type="text" name="email" class="form-control" id="email" placeholder="" required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-control-feedback">
+                            <span class="text-danger align-middle">
+                                        <!-- Put e-mail validation error messages here -->
+                                    </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-md-2 col-md-2 field-label-responsive">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+                                <input type="password" name="password" class="form-control" id="password" placeholder="" required>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="offset-md-2 col-md-2 field-label-responsive">
+
+                        <label for="password">Confirm Password</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i>
+
+
+                                </div>
+                                <input type="password" name="password-confirmation" class="form-control" id="password-confirm" placeholder="" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-md-2 col-md-2 field-label-responsive">
+                        <label for="Mobile_Number">Mobile Number</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-addon" style="width: 2.6rem">
+                                    <i class="fas fa-phone-square"></i>
+                                </div>
+                                <input type="number" name="mobile-number" class="form-control" id="password-confirm" placeholder="" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom:5px">
+                    <div class="offset-md-2 col-md-2 field-label-responsive">
+                        <label for="Gender">Gender</label>
+                    </div>
+                    <div class="radio" style="padding-right:10px">
+                        <label><input type="radio" name="optradio">Male</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Female</label>
+                    </div>
+
+                </div>
+                <div class="row" style="margin-bottom:5px">
+                    <div class="offset-md-2 col-md-2 field-label-responsive">
+                        <label for="Gender">Marital Status:</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Never Married   </label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Divorced</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Widowed</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Seperated</label>
+                    </div>
+
+                </div>
+                <div class="row" style="margin-bottom:5px">
+                    <div class="offset-md-2 col-md-2 field-label-responsive">
+                        <label>Family type:</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">
+                                Joint Family </label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Nuclear Family </label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Others</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-md-2 col-md-2 field-label-responsive">
+                        <label for="">Family Status:</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">
+                                Rich/Affluent </label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Upper Middle  Class</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio"> Middle Class</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Poor </label>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="offset-md-2 col-md-2 field-lab-responsive">
+                        <label for="Birth_Date">Birth_Date</label>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <div class="input-group mb-2 mr-sm-1 mb-sm-0">
+                                <div class="input-group-addon" style="width: 2.6rem"> <i class="fas fa-calendar-alt"></i></div>
+                                <input type="date" class="form-control  mb-2 mr-sm-2 mb-sm-0" id="exampleInputDOB1" placeholder="">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="offset-md-2 col-md-2 field-lab-responsive">
+                        <label for="Birth_time">Time of Birth</label>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <div class="input-group mb-2 mr-sm-1 mb-sm-0">
+                                <div class="input-group-addon" style="width: 2.6rem">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <input type="" class="form-control  mb-2 mr-sm-2 mb-sm-0" id="exampleInputDOB1" placeholder="">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-md-2 col-md-2 field-lab-responsive">
+                        <label for="Birth_time">Place of Birth</label>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <div class="input-group mb-2 mr-sm-1 mb-sm-0">
+                                <div class="input-group-addon" style="width: 2.6rem">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <input type="" class="form-control  mb-2 mr-sm-2 mb-sm-0" id="exampleInputDOB1" placeholder="">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-md-2 col-md-2 field-label-responsive">
+                        <label for="">Body Type:</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Slim  </label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Average</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">  Athletic </label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Heavy</label>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="offset-md-2 col-md-2 field-label-responsive">
+                        <label for="">Complexion:</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">
+                                Fair</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Wheatish</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Wheatish </label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio"> Brown Dark</label>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="offset-md-2 col-md-2 field-label-responsive">
+                        <label for="Profession">Height:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <select class="form-control" id="cb_height">
+                                                         <option value=""> -</option>
+                                                        <option value="4'" id="cbf401">4'</option>
+                                                        <option value="4'1&quot;" id="cbf402">4'1"</option>
+                                                        <option value="4'2&quot;" id="cbf403">4'2"</option>
+                                                        <option value="4'3&quot;" id="cbf404">4'3"</option>
+                                                        <option value="4'4&quot;" id="cbf405">4'4"</option>
+                                                        <option value="4'5&quot;" id="cbf406">4'5"</option>
+                                                        <option value="4'6&quot;" id="cbf407">4'6"</option>
+                                                        <option value="4'7&quot;" id="cbf408">4'7"</option>
+                                                        <option value="4'8&quot;" id="cbf409">4'8"</option>
+                                                        <option value="4'9&quot;" id="cbf410">4'9"</option>
+                                                        <option value="4'10&quot;" id="cbf411">4'10"</option>
+                                                        <option value="4'11&quot;" id="cbf412">4'11"</option>
+                                                        <option value="5'" id="cbf413">5'</option>
+                                                        <option value="5'1&quot;" id="cbf414">5'1"</option>
+                                                        <option value="5'2&quot;" id="cbf415">5'2"</option>
+                                                        <option value="5'3&quot;" id="cbf416">5'3"</option>
+                                                        <option value="5'4&quot;" id="cbf417">5'4"</option>
+                                                        <option value="5'5&quot;" id="cbf418">5'5"</option>
+                                                        <option value="5'6&quot;" id="cbf419">5'6"</option>
+                                                        <option value="5'7&quot;" id="cbf420">5'7"</option>
+                                                        <option value="5'8&quot;" id="cbf421">5'8"</option>
+                                                        <option value="5'9&quot;" id="cbf422">5'9"</option>
+                                                        <option value="5'10&quot;" id="cbf423">5'10"</option>
+                                                        <option value="5'11&quot;" id="cbf424">5'11"</option>
+                                                        <option value="6'" id="cbf425">6'</option>
+                                                        <option value="6'1&quot;" id="cbf426">6'1"</option>
+                                                        <option value="6'2&quot;" id="cbf427">6'2"</option>
+                                                        <option value="6'3&quot;" id="cbf428">6'3"</option>
+                                                        <option value="6'4&quot;" id="cbf429">6'4"</option>
+                                                        <option value="6'5&quot;" id="cbf430">6'5"</option>
+                                                        <option value="6'7&quot;" id="cbf431">6'7"</option>
+                                                        <option value="6'8&quot;" id="cbf432">6'8"</option>
+                                                        <option value="6'9&quot;" id="cbf433">6'9"</option>
+                                                        <option value="6'10&quot;" id="cbf434">6'10"</option>
+                                                        <option value="6'11&quot;" id="cbf435">6'11"</option>
+                                                        <option value="7'" id="cbf436">7'</option>
+                                                    </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-md-2 col-md-2 field-label-responsive">
+                        <label for="name">Weight in Kgs:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                              
+                                <input type="text" name="Weight" class="form-control" id=Weight " placeholder=" " required autofocus>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 ">
+                        <div class="form-control-feedback ">
+                            <span class="text-danger align-middle ">
+                                                <!-- Put name validation error messages here -->
+                                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="offset-md-2 col-md-2 field-label-responsive ">
+                        <label for="Profession ">Higest Qualification:</label>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="form-group ">
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
+                                <select class="form-control " id="sel1 ">
+                                                    
+                                               
+                                                        <option value=" ">- </option>
+                                                        <option value="-----Professional Degrees----- " id="cbf649 ">-----Professional Degrees-----</option>
+                                                        <option value="BAMS " id="cbf650 ">BAMS</option>
+                                                        <option value="BHMS " id="cbf651 ">BHMS</option>
+                                                        <option value="B.E/B.Tech " id="cbf652 ">B.E/B.Tech</option>
+                                                        <option value="B.Pharma " id="cbf653 ">B.Pharma</option>
+                                                        <option value="CA " id="cbf654 ">CA</option>
+                                                        <option value="CS " id="cbf655 ">CS</option>
+                                                        <option value="DM " id="cbf656 ">DM</option>
+                                                        <option value="ICWA " id="cbf657 ">ICWA</option>
+                                                        <option value="MBBS " id="cbf658 ">MBBS</option>
+                                                        <option value="BDS " id="cbf659 ">BDS</option>
+                                                        <option value="MCA " id="cbf660 ">MCA</option>
+                                                        <option value="PGDCA " id="cbf661 ">PGDCA</option>
+                                                        <option value="MD/MS (Medical) " id="cbf662 ">MD/MS (Medical)</option>
+                                                        <option value="M.E,/M.Tech/MS (Engineering) " id="cbf663 ">M.E,/M.Tech/MS (Engineering)</option>
+                                                        <option value="M.Pharma " id="cbf664 ">M.Pharma</option>
+                                                        <option value="Ph.D " id="cbf665 ">Ph.D</option>
+                                                        <option value="-----Post-Graduate Degrees----- " id="cbf666 ">-----Post-Graduate Degrees-----</option>
+                                                        <option value="Masters " id="cbf667 ">Masters</option>
+                                                        <option value="MBA/PGDM " id="cbf668 ">MBA/PGDM</option>
+                                                        <option value="ML/LLM " id="cbf669 ">ML/LLM</option>
+                                                        <option value="-----Graduate Degrees----- " id="cbf670 ">-----Graduate Degrees-----</option>
+                                                        <option value="B.A " id="cbf671 ">B.A</option>
+                                                        <option value="B.Com " id="cbf672 ">B.Com</option>
+                                                        <option value="B.Sc " id="cbf673 ">B.Sc</option>
+                                                        <option value="BL/LLB " id="cbf674 ">BL/LLB</option>
+                                                        <option value="Bachelors " id="cbf675 ">Bachelors</option>
+                                                        <option value="Engineering " id="cbf676 ">Engineering</option>
+                                                        <option value="--------------------------- " id="cbf677 ">---------------------------</option>
+                                                        <option value="High School " id="cbf678 ">High School</option>
+                                                        <option value="Trade School " id="cbf679 ">Trade School</option>
+                                                        <option value="Diploma " id="cbf680 ">Diploma</option>
+                                                        <option value="Other " id="cbf681 ">Other</option>
+                                                        <option value="Less than high school " id="cbf682 ">Less than high school</option>
+                                                        <option value="Undergraduate " id="cbf683 ">Undergraduate</option>
+                                                        <option value="Associates degree " id="cbf684 ">Associates degree</option>
+                                                    </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="offset-md-2 col-md-2 field-label-responsive ">
+                        <label for="Profession ">Profession</label>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="form-group ">
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
+                                <div class="input-group-addon " style="width: 2.6rem ">
+                                    <i class="fas fa-location-arrow "></i>
+                                </div>
+                                <input type="string " name="Profession " class="form-control " id="Profession
+                                    " placeholder="" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="offset-md-2 col-md-2 field-label-responsive ">
+                        <label for="name ">Father's Name</label>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="form-group ">
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
+                                <div class="input-group-addon " style="width: 2.6rem "><i class="fa fa-user "></i></div>
+                                <input type="text " name="name " class="form-control " id="name " placeholder="" required autofocus>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="offset-md-2 col-md-2 field-label-responsive">
+                        <label for="name">Brother's & Sister 's Details:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                                <input type="text" name="name" class="form-control" id="name" placeholder=" "/>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="offset-md-2 col-md-2 field-label-responsive">
+                        <label for="name">Mother's Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="" required autofocus>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="offset-md-2 col-md-2 field-label-responsive">
+                                <label for="Profession">Father's_Occupation</label>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                        <select class="form-control" id="sel1">
+                                                                <option>-</option>
+                                                                <option>Business/Entrepreneur</option>
+                                                                <option>Service - Private</option>
+                                                                <option>Service - Govt./PSU</option>
+                                                                <option>Army/Armed Forces</option>
+                                                                <option>Civil Services</option>
+                                                                <option>Teacher</option>
+                                                                <option>Not Employed</option>
+                                                                <option>Retired</option>
+                                                                <option>Expired</option>
+                                            </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="offset-md-2 col-md-2 field-label-responsive">
+                                <label for="Profession">Mother's_Occupation</label>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                        <select class="form-control" id="sel1">
+                                                                    <option>-</option>
+                                                                    <option>Business/Entrepreneur</option>
+                                                                    <option>Service - Private</option>
+                                                                    <option>Service - Govt./PSU</option>
+                                                                    <option>Army/Armed Forces</option>
+                                                                    <option>Civil Services</option>
+                                                                    <option>Teacher</option>
+                                                                    <option>Not Employed</option>
+                                                                    <option>Retired</option>
+                                                                    <option>Expired</option>
+                                                </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="offset-md-2 col-md-2 field-label-responsive">
+                            <label for="Address">Address</label>
+                        </div>
+
+                        <div class="col-md-6" style="border:solid gray 2px">
+
+                            <div class="col-md-4">
+                                <label for="Current_Address">Current_Address</label>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                        <div class="input-group-addon" style="width: 2.6rem">
+                                            <i class="fas fa-address-book"></i>
+
+                                        </div>
+                                        <input type="string" name="" class="form-control" id="Profession" placeholder="" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin:0px">
+                                <div class="col-md-2">
+                                    <label for="Current_Address">City</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+
+                                            <input type="string" name="" class="form-control" id="Profession" placeholder="" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="Current_Address">State</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+
+                                            <input type="string" name="" class="form-control" id="Profession" placeholder="" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin:0px">
+                                <div class="col-md-2">
+                                    <label for="Current_Address">Zip_code</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+
+                                            <input type="string" name="" class="form-control" id="Profession" placeholder="" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="Current_Address">Country</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+
+                                            <input type="string" name="" class="form-control" id="Profession" placeholder="" required>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="permanent_Address">permanent_Address</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                            <div class="input-group-addon" style="width: 2.6rem">
+                                                <i class="fas fa-address-book"></i>
+
+                                            </div>
+                                            <input type="string" name="" class="form-control" id="Profession" placeholder="" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin:0px">
+                                    <div class="col-md-2">
+                                        <label for="Current_Address">City</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+
+                                                <input type="string" name="" class="form-control" id="Profession" placeholder="" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="Current_Address">State</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+
+                                                <input type="string" name="" class="form-control" id="Profession" placeholder="" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin:0px">
+                                    <div class="col-md-2">
+                                        <label for="Current_Address">Zip_code</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+
+                                                <input type="string" name="" class="form-control" id="Profession" placeholder="" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="Current_Address">Country</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+
+                                                <input type="string" name="" class="form-control" id="Profession" placeholder="" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>

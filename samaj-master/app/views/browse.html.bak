@@ -1,0 +1,296 @@
+<div class="fluid-container">
+    <div class="offset-md-2 col-sm-8 " style="margin-top:20px">
+
+        <div class="row card">
+            <div class="card-header">
+                <h3 class="card-title">Browse</h3>
+
+            </div>
+            <div class="row">
+                <div class="offset-md-1 col-md-1 field-label-responsive">
+                    <label for="Profession">FirstName:</label>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <select class="form-control" id="cb_height">
+                                         <option value=""> equal</option>
+                                        <option value="4'" id="cbf401">not-equal</option>
+                                        <option value="4'1&quot;" id="cbf402">like</option>
+                                        <option value="4'2&quot;" id="cbf403">not-like</Not-like></option>
+                                       
+                                    </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 ">
+                    <div class="form-group ">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
+
+                            <input type="string " name="Profession " class="form-control " id="Profession
+                                        " placeholder="" required>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="field-label-responsive">
+                    <label for="Profession">MiddleName:</label>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <select class="form-control" id="cb_height">
+                                             <option value=""> equal</option>
+                                            <option value="4'" id="cbf401">not-equal</option>
+                                            <option value="4'1&quot;" id="cbf402">like</option>
+                                            <option value="4'2&quot;" id="cbf403">not-like</Not-like></option>
+                                           
+                                        </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 ">
+                    <div class="form-group ">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
+
+                            <input type="string " name="Profession " class="form-control " id="Profession
+                                    " placeholder="" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-md-1 col-md-1 field-label-responsive">
+                    <label for="Profession">LastName:</label>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <select class="form-control" id="cb_height">
+                                             <option value=""> equal</option>
+                                            <option value="4'" id="cbf401">not-equal</option>
+                                            <option value="4'1&quot;" id="cbf402">like</option>
+                                            <option value="4'2&quot;" id="cbf403">not-like</Not-like></option>
+                                           
+                                        </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 ">
+                    <div class="form-group ">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
+
+                            <input type="string " name="Profession " class="form-control " id="Profession
+                                            " placeholder="" required>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="field-label-responsive">
+                    <label for="Profession">E-Mail:</label>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <select class="form-control" id="cb_height">
+                                                 <option value=""> equal</option>
+                                                <option value="4'" id="cbf401">not-equal</option>
+                                                <option value="4'1&quot;" id="cbf402">like</option>
+                                                <option value="4'2&quot;" id="cbf403">not-like</Not-like></option>
+                                               
+                                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 ">
+                    <div class="form-group ">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
+
+                            <input type="string " name="Profession " class="form-control " id="Profession
+                                        " placeholder="" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-md-1 col-md-1 field-label-responsive">
+                    <label for="Profession">MobileNumber:</label>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <select class="form-control" id="cb_height">
+                                                 <option value=""> equal</option>
+                                                <option value="4'" id="cbf401">not-equal</option>
+                                                <option value="4'1&quot;" id="cbf402">like</option>
+                                                <option value="4'2&quot;" id="cbf403">not-like</Not-like></option>
+                                               
+                                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 ">
+                    <div class="form-group ">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
+
+                            <input type="string " name="Profession " class="form-control " id="Profession
+                                                " placeholder="" required>
+                        </div>
+                    </div>
+                </div>
+
+            
+            
+                <div class="field-label-responsive">
+                    <label for="Profession">Gender:</label>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <select class="form-control" id="cb_height">
+                                                     <option value=""> equal</option>
+                                                    <option value="4'" id="cbf401">not-equal</option>
+                                                    <option value="4'1&quot;" id="cbf402">like</option>
+                                                    <option value="4'2&quot;" id="cbf403">not-like</Not-like></option>
+                                                   
+                                                </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 ">
+                    <div class="form-group ">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
+
+                            <input type="string " name="Profession " class="form-control " id="Profession
+                                            " placeholder="" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-md-1 col-md-1 field-label-responsive">
+                    <label for="Profession">Marital Status:</label>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <select class="form-control" id="cb_height">
+                                                     <option value=""> equal</option>
+                                                    <option value="4'" id="cbf401">not-equal</option>
+                                                    <option value="4'1&quot;" id="cbf402">like</option>
+                                                    <option value="4'2&quot;" id="cbf403">not-like</Not-like></option>
+                                                   
+                                                </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 ">
+                    <div class="form-group ">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
+
+                            <input type="string " name="Profession " class="form-control " id="Profession
+                                                    " placeholder="" required>
+                        </div>
+                    </div>
+                </div>
+           
+                <div class="field-label-responsive">
+                    <label for="Profession">Family type:</label>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <select class="form-control" id="cb_height">
+                                                         <option value=""> equal</option>
+                                                        <option value="4'" id="cbf401">not-equal</option>
+                                                        <option value="4'1&quot;" id="cbf402">like</option>
+                                                        <option value="4'2&quot;" id="cbf403">not-like</Not-like></option>
+                                                       
+                                                    </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 ">
+                    <div class="form-group ">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
+
+                            <input type="string " name="Profession " class="form-control " id="Profession
+                                                " placeholder="" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-md-1 col-md-1 field-label-responsive">
+                    <label for="Profession">Family Status:</label>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <select class="form-control" id="cb_height">
+                                                         <option value=""> equal</option>
+                                                        <option value="4'" id="cbf401">not-equal</option>
+                                                        <option value="4'1&quot;" id="cbf402">like</option>
+                                                        <option value="4'2&quot;" id="cbf403">not-like</Not-like></option>
+                                                       
+                                                    </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 ">
+                    <div class="form-group ">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
+
+                            <input type="string " name="Profession " class="form-control " id="Profession
+                                                        " placeholder="" required>
+                        </div>
+                    </div>
+                </div>
+
+        
+                <div class="field-label-responsive">
+                    <label for="Profession">Birth_Date</label>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <select class="form-control" id="cb_height">
+                                                             <option value=""> equal</option>
+                                                            <option value="4'" id="cbf401">not-equal</option>
+                                                            <option value="4'1&quot;" id="cbf402">like</option>
+                                                            <option value="4'2&quot;" id="cbf403">not-like</Not-like></option>
+                                                           
+                                                        </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 ">
+                    <div class="form-group ">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
+
+                            <input type="string " name="Profession " class="form-control " id="Profession
+                                                    " placeholder="" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

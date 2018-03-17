@@ -1,0 +1,609 @@
+<div class="fluid-container ">
+
+  <div class="offset-md-2 col-sm-8 " style="margin-top:20px">
+    <div class="row card">
+      <div class="card-header">
+        <span class="card-title">Browse</span>
+      </div>
+      <div class="card-body p-4">
+        <div id="serchPanel">
+          <div class="row mx-0">
+            <div class="col-md-2 " style="text-align:right">
+              <label for="firstName">First Name</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[0].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                    <option value="like">like</option>
+                    <option value="not like">not like</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <input type="string " name="firstName" ng-model="browse.search[0].value" class="form-control " id="firstName" placeholder="first name">
+            </div>
+            <div class="col-md-2" style="text-align:right">
+              <label for="middleName">Middle Name</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[1].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                    <option value="like">like</option>
+                    <option value="not like">not like</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <input type="string " name="middleName" ng-model="browse.search[1].value" class="form-control " id="middleName" placeholder="middle name">
+            </div>
+          </div>
+
+
+
+          <div class="row mx-0">
+            <div class="col-md-2 " style="text-align:right">
+              <label for="lastName">Last Name</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[2].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                    <option value="like">like</option>
+                    <option value="not like">not like</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <input type="string " name="lastName" ng-model="browse.search[2].value" class="form-control " id="lastName" placeholder="last name">
+            </div>
+            <div class="col-md-2" style="text-align:right">
+              <label for="Email">Email</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[3].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                    <option value="like">like</option>
+                    <option value="not like">not like</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <input type="string " name="email" ng-model="browse.search[3].value" class="form-control " id="email" placeholder="email">
+            </div>
+          </div>
+
+
+
+
+
+          <div class="row mx-0">
+            <div class="col-md-2 " style="text-align:right">
+              <label for="mobileNo">Mobile No</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[4].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                    <option value="like">like</option>
+                    <option value="not like">not like</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <input type="string " name="mobileNo" ng-model="browse.search[4].value" class="form-control " id="mobileNo" placeholder="mobile number">
+            </div>
+            <div class="col-md-2" style="text-align:right">
+              <label for="Gender">Gender</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[5].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <select ng-model="browse.search[5].value" class="form-control">
+                <option value="Male"> Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+          </div>
+          <div class="row mx-0">
+            <div class="col-md-2 " style="text-align:right">
+              <label for="Marital Status">Marital Status</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[6].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[6].value" class="form-control">
+                    <option value="NeverMarried"> NeverMarried</option>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Widowed">Widowed</option>
+                    <option value="Separated">Separated</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-2" style="text-align:right">
+              <label for="middleName">Family Type</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[7].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <select ng-model="browse.search[7].value" class="form-control">
+                <option value="JointFamily"> JointFamily</option>
+                <option value="NuclearFamily">NuclearFamily</option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+          </div>
+          <div class="row mx-0">
+            <div class="col-md-2 " style="text-align:right">
+              <label for="placeOfBirth">Place of birth</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[8].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                    <option value="like">like</option>
+                    <option value="not like">not like</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <input type="string " name="placeOfBirth" ng-model="browse.search[8].value" class="form-control " id="placeOfBirth" placeholder="place of birth">
+            </div>
+
+            <div class="col-md-2" style="text-align:right">
+              <label for="middleName">Height</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[9].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <select ng-model="browse.search[9].value" class="form-control" id="cb_height">
+                <option value=""> -</option>
+                <option value="4'" id="cbf401">4'</option>
+                <option value="4'1&quot;" id="cbf402">4'1"</option>
+                <option value="4'2&quot;" id="cbf403">4'2"</option>
+                <option value="4'3&quot;" id="cbf404">4'3"</option>
+                <option value="4'4&quot;" id="cbf405">4'4"</option>
+                <option value="4'5&quot;" id="cbf406">4'5"</option>
+                <option value="4'6&quot;" id="cbf407">4'6"</option>
+                <option value="4'7&quot;" id="cbf408">4'7"</option>
+                <option value="4'8&quot;" id="cbf409">4'8"</option>
+                <option value="4'9&quot;" id="cbf410">4'9"</option>
+                <option value="4'10&quot;" id="cbf411">4'10"</option>
+                <option value="4'11&quot;" id="cbf412">4'11"</option>
+                <option value="5'" id="cbf413">5'</option>
+                <option value="5'1&quot;" id="cbf414">5'1"</option>
+                <option value="5'2&quot;" id="cbf415">5'2"</option>
+                <option value="5'3&quot;" id="cbf416">5'3"</option>
+                <option value="5'4&quot;" id="cbf417">5'4"</option>
+                <option value="5'5&quot;" id="cbf418">5'5"</option>
+                <option value="5'6&quot;" id="cbf419">5'6"</option>
+                <option value="5'7&quot;" id="cbf420">5'7"</option>
+                <option value="5'8&quot;" id="cbf421">5'8"</option>
+                <option value="5'9&quot;" id="cbf422">5'9"</option>
+                <option value="5'10&quot;" id="cbf423">5'10"</option>
+                <option value="5'11&quot;" id="cbf424">5'11"</option>
+                <option value="6'" id="cbf425">6'</option>
+                <option value="6'1&quot;" id="cbf426">6'1"</option>
+                <option value="6'2&quot;" id="cbf427">6'2"</option>
+                <option value="6'3&quot;" id="cbf428">6'3"</option>
+                <option value="6'4&quot;" id="cbf429">6'4"</option>
+                <option value="6'5&quot;" id="cbf430">6'5"</option>
+                <option value="6'7&quot;" id="cbf431">6'7"</option>
+                <option value="6'8&quot;" id="cbf432">6'8"</option>
+                <option value="6'9&quot;" id="cbf433">6'9"</option>
+                <option value="6'10&quot;" id="cbf434">6'10"</option>
+                <option value="6'11&quot;" id="cbf435">6'11"</option>
+                <option value="7'" id="cbf436">7'</option>
+              </select>
+            </div>
+          </div>
+          <div class="row mx-0">
+            <!--div class="col-md-2 " style="text-align:right">
+              <label for="mobileNo">Weight</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[10].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <input type="string " name="weight" ng-model="browse.search[10].value" class="form-control " id="weight" placeholder="weight">
+            </div-->
+            <div class="col-md-2" style="text-align:right">
+              <label for="Gender">Highest Qualification</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[11].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <select class="form-control" ng-model="browse.search[11].value" name="higestQualification"
+                id="higestQualification">
+                <option value=" ">- </option>
+                <option value="-----Professional Degrees----- " id="cbf649 ">-----Professional Degrees-----</option>
+                <option value="BAMS " id="cbf650 ">BAMS</option>
+                <option value="BHMS " id="cbf651 ">BHMS</option>
+                <option value="B.E/B.Tech " id="cbf652 ">B.E/B.Tech</option>
+                <option value="B.E+MBA " id="cbf652 ">B.E+MBA</option>
+                <option value="B.Pharma " id="cbf653 ">B.Pharma</option>
+                <option value="CA " id="cbf654 ">CA</option>
+                <option value="CS " id="cbf655 ">CS</option>
+                <option value="DM " id="cbf656 ">DM</option>
+                <option value="ICWA " id="cbf657 ">ICWA</option>
+                <option value="MBBS " id="cbf658 ">MBBS</option>
+                <option value="BDS " id="cbf659 ">BDS</option>
+                <option value="MCA " id="cbf660 ">MCA</option>
+                <option value="PGDCA " id="cbf661 ">PGDCA</option>
+                <option value="MD/MS (Medical) " id="cbf662 ">MD/MS (Medical)</option>
+                <option value="M.E,/M.Tech/MS (Engineering) " id="cbf663 ">M.E,/M.Tech/MS (Engineering)</option>
+                <option value="M.Pharma " id="cbf664 ">M.Pharma</option>
+                <option value="Ph.D " id="cbf665 ">Ph.D</option>
+                <option value="-----Post-Graduate Degrees----- " id="cbf666 ">-----Post-Graduate Degrees-----</option>
+                <option value="Masters " id="cbf667 ">Masters</option>
+                <option value="MBA/PGDM " id="cbf668 ">MBA/PGDM</option>
+                <option value="ML/LLM " id="cbf669 ">ML/LLM</option>
+                <option value="-----Graduate Degrees----- " id="cbf670 ">-----Graduate Degrees-----</option>
+                <option value="B.A " id="cbf671 ">B.A</option>
+                <option value="B.Com " id="cbf672 ">B.Com</option>
+                <option value="B.Sc " id="cbf673 ">B.Sc</option>
+                <option value="BL/LLB " id="cbf674 ">BL/LLB</option>
+                <option value="Bachelors " id="cbf675 ">Bachelors</option>
+                <option value="Engineering " id="cbf676 ">Engineering</option>
+                <option value="--------------------------- " id="cbf677 ">---------------------------</option>
+                <option value="High School " id="cbf678 ">High School</option>
+                <option value="Trade School " id="cbf679 ">Trade School</option>
+                <option value="Diploma " id="cbf680 ">Diploma</option>
+                <option value="Other " id="cbf681 ">Other</option>
+                <option value="Less than high school " id="cbf682 ">Less than high school</option>
+                <option value="Undergraduate " id="cbf683 ">Undergraduate</option>
+                <option value="Associates degree " id="cbf684 ">Associates degree</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row mx-0">
+            <div class="col-md-2 " style="text-align:right">
+              <label for="mobileNo">Details of Service</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[12].operator" class="form-control">
+                    <option value="like">like</option>
+                    <option value="not like">not like</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <input type="string " name="detailsOfService" ng-model="browse.search[12].value" class="form-control " id="detailsOfService"
+                placeholder="Details of service">
+            </div>
+            <div class="col-md-2 " style="text-align:right">
+              <label for="mobileNo">Designation in Service</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[13].operator" class="form-control">
+                    <option value="like">like</option>
+                    <option value="not like">not like</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <input type="string " name="designationInService" ng-model="browse.search[13].value" class="form-control " id="designationInService"
+                placeholder="Designation in service">
+            </div>
+          </div>
+
+          <div class="row mx-0">
+            <div class="col-md-2 " style="text-align:right">
+              <label for="Marital Status">Details of Business</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[14].operator" class="form-control">
+                    <option value="like">like</option>
+                    <option value="not like">not like</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="string " name="detailsOfBusiness" ng-model="browse.search[14].value" class="form-control " id="detailsOfBusiness"
+                    placeholder="details of business">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-2" style="text-align:right">
+              <label for="middleName">Father First Name</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[15].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                    <option value="like">like</option>
+                    <option value="not like">not like</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <input type="string " name="fatherFirstName" ng-model="browse.search[15].value" class="form-control " id="fatherFirstName"
+                placeholder="father first Name">
+            </div>
+          </div>
+
+          <div class="row mx-0">
+            <div class="col-md-2 " style="text-align:right">
+              <label for="mobileNo">Father Middle Name</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[16].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                    <option value="like">like</option>
+                    <option value="not like">not like</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <input type="string " name="fatherMiddleName" ng-model="browse.search[16].value" class="form-control " id="fatherMiddleName"
+                placeholder="father Middle Name">
+            </div>
+            <div class="col-md-2" style="text-align:right">
+              <label for="Gender">Father Last Name</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[17].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                    <option value="like">like</option>
+                    <option value="not like">not like</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <input type="string " name="fatherLastName" ng-model="browse.search[17].value" class="form-control " id="fatherLastName"
+                placeholder="father Last Name">
+            </div>
+          </div>
+          <div class="row mx-0">
+            <div class="col-md-2" style="text-align:right">
+              <label for="Gender">Mother First Name</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[18].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                    <option value="like">like</option>
+                    <option value="not like">not like</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <input type="string " name="mother" ng-model="browse.search[18].value" class="form-control " id="motherFirstName" placeholder="mother First Name">
+            </div>
+            <div class="col-md-2" style="text-align:right">
+              <label for="Gender">Mother Middle Name</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[19].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                    <option value="like">like</option>
+                    <option value="not like">not like</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <input type="string " name="motherMiddleName" ng-model="browse.search[19].value" class="form-control " id="motherMiddleName"
+                placeholder="mother middle name">
+            </div>
+          </div>
+
+          <div class="row mx-0">
+            <div class="col-md-2" style="text-align:right">
+              <label for="Gender">Mother Last Name</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[20].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                    <option value="like">like</option>
+                    <option value="not like">not like</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <input type="string " name="motherLastName" ng-model="browse.search[20].value" class="form-control " id="middleLastName"
+                placeholder="Mother Last Name">
+            </div>
+            <div class="col-md-2" style="text-align:right">
+              <label for="Gender">Sangh</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[21].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <select id="sangh" name="sangh" ng-model="browse.search[21].value" required class="form-control " id="sangh ">
+                <option value="">-</option>
+                <option value="Pune">Pune</option>
+                <option value="Nagpur">Nagpur</option>
+                <option value="Thane">Thane</option>
+                <option value="Amravati">Amravati</option>
+                <option value="Khamgoan">Khamgoan</option>
+                <option value="Nashik">Nashik</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Amalner">Amalner</option>
+              </select>
+            </div>
+          </div>
+          <div class="row mx-0">
+            <div class="col-md-2 " style="text-align:right">
+              <label for="Marital Status">Expertise</label>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <select ng-model="browse.search[22].operator" class="form-control">
+                    <option value="equal"> equal</option>
+                    <option value="not equal">not equal</option>
+                    <option value="like">like</option>
+                    <option value="not like">not like</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="string " name="expertise" ng-model="browse.search[22].value" class="form-control " id="expertise" placeholder="Expertise">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end of search panel-->
+        <div class="row" style="margin-top:20px;margin-bottom:20px">
+          <div class="offset-md-1">
+            <button type="button" ng-click="browse.searchRecord()" class="btn btn-light">Search</button>
+          </div>
+          <div class="offset-md-1">
+            <button type="button" ng-click="browse.reset()" class="btn btn-light">Cancal</button>
+          </div>
+          <div class="offset-md-1">
+            <button type="button" ng-click="browse.all()" class="btn btn-light">view all</button>
+          </div>
+        </div>
+        <table class="table table-bordered" style="overflow-y: scroll; height:300px">
+          <thead class="thead-default">
+            <tr>
+              <th>Id</th>
+              <th>Firstname</th>
+              <th>MiddleName</th>
+              <th>LastName</th>
+              <th>E-Mail</th>
+              <th>Mobile Number</th>
+              <th>Gender</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="person in browse.searchData._embedded.personList">
+              <td><a href="#!/profile/{{person.email}}">{{person.id}}</a></td>
+              <td>{{person.firstName}}</td>
+              <td>{{person.middleName}}</td>
+              <td>{{person.lastName}}</td>
+              <td>{{person.email}}</td>
+              <td>{{person.mobileNo}}</td>
+              <td>{{person.gender}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="pagination" ng-if="browse.searchData.page.totalElements>0">
+          <li class="page-item" ng-repeat="p in browse.pageNumbers">
+            <button class="btn btn-primary" ng-click="browse.paginate($index)">{{ p+1}}</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+

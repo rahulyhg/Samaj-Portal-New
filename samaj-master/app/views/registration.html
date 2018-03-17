@@ -1,0 +1,712 @@
+<section>
+  <div class="fluid-container">
+    <div class="offset-md-1 col-md-10">
+      <div class="form-horizontal card" style="margin-top:30px">
+        <div class="row card-header" style="margin:0px">
+          <span class="card-title">Registration</span>
+          <hr>
+        </div>
+        <div class="card-body">
+          <!--alert ng-show='vm.showAlert' type="{{vm.alertType}}">{{vm.alertMessage}}</alert-->
+          <!--div ng-show="register.profile.vadhuVarMelava == null">
+            <div class="row" style="margin:0px">
+              <div class="col-md-12">
+                <div class="question">Do you want to register for vadhu-var melava?</div>
+                <div style="font-size:14px">Note:Only registration candidate may be selected as 'YES'.</div>
+                <div class="col-md-12 buttonPanel" style="padding:20px">
+                  <button class="btn btn-lg btn-primary" ng-click="register.setVadhuVarMelava('Yes')">Yes</button>
+                  <button class="btn btn-lg btn-danger" ng-click="register.setVadhuVarMelava('No')">No</button>
+                </div>
+              </div>
+            </div>
+          </div-->
+          <form name="registerForm">
+            <div class="row" style="margin-top:30px">
+              <div class="offset-md-2 col-md-2">
+                <button class="btn btn-primary" ng-click="register.backToVadhuVarMelavaSelection()">Back</button>
+              </div>
+            </div>
+            <div class="row" style="margin-top:30px">
+              <div class="offset-md-2 col-md-2 field-label-responsive">
+                <label for="name">First Name</label>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon" style="width: 2.6rem">
+                      <i class="fa fa-user"></i>
+                    </div>
+                    <input type="text" name="firstName" class="form-control" id="firstName" ng-model="register.profile.firstName" placeholder="First Name"
+                      required autofocus>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <div class="form-control-feedback">
+                  <span ng-messages="registerForm.firstName.$error" ng-show="registerForm.firstName.$touched">
+                    <span class="badge badge-danger" ng-message="required">This is required</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="offset-md-2 col-md-2 field-label-responsive">
+                <label for="name">Middle Name</label>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon" style="width: 2.6rem">
+                      <i class="fa fa-user"></i>
+                    </div>
+                    <input type="text" name="middleName" class="form-control" ng-model="register.profile.middleName" id="middleName" placeholder="Middle Name"
+                      required autofocus>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <div class="form-control-feedback">
+                  <span ng-messages="registerForm.middleName.$error" ng-show="registerForm.middleName.$touched">
+                    <span class="badge badge-danger" ng-message="required">This is required</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="offset-md-2 col-md-2 field-label-responsive">
+                <label for="name">Last Name</label>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon" style="width: 2.6rem">
+                      <i class="fa fa-user"></i>
+                    </div>
+                    <input type="text" name="lastName" class="form-control" ng-model="register.profile.lastName" id="lastName" placeholder="Last Name"
+                      required autofocus>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <div class="form-control-feedback">
+                  <span ng-messages="registerForm.lastName.$error" ng-show="registerForm.lastName.$touched">
+                    <span class="badge badge-danger" ng-message="required">This is required</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="offset-md-2 col-md-2 field-label-responsivse">
+                <label for="email">E-Mail Address</label>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon" style="width: 2.6rem">
+                      <i class="fa fa-at"></i>
+                    </div>
+                    <input type="text" name="email" ng-model="register.profile.email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/"
+                      class="form-control" id="email" placeholder="you@example.com" required autofocus>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-control-feedback">
+                  <div ng-messages="registerForm.email.$error" ng-show="registerForm.email.$touched">
+                    <span class="badge badge-danger" ng-message="required">This is required</span>
+                    <span class="badge badge-danger" ng-message="pattern">The format must be
+                      <em>id@domain.com</em>.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="offset-md-2 col-md-2 field-label-responsive">
+                <label for="password">Password</label>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon" style="width: 2.6rem">
+                      <i class="fa fa-key"></i>
+                    </div>
+                    <input type="password" name="password" ng-model="register.profile.password" class="form-control" id="password" placeholder="Password"
+                      required>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-control-feedback">
+                  <span ng-messages="registerForm.password.$error" ng-show="registerForm.password.$touched">
+                    <span class="badge badge-danger" ng-message="required">This is required</span>
+                  </span>
+                  <span class="badge badge-danger" ng-show="!register.isPasswordConfirmPasswordSame">Password is not same</span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="offset-md-2 col-md-2 field-label-responsive">
+                <label for="password">Confirm Password</label>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon" style="width: 2.6rem">
+                      <i class="fa fa-key"></i>
+
+
+                    </div>
+                    <input type="password" ng-model="register.profile.confirmPassword" name="confirmPassword" class="form-control" id="confirmPassword"
+                      placeholder="Password" required>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-control-feedback">
+                  <span ng-messages="registerForm.confirmPassword.$error" ng-show="registerForm.confirmPassword.$touched">
+                    <span class="badge badge-danger" ng-message="required">This is required</span>
+                  </span>
+                  <span class="badge badge-danger" ng-show="!register.isPasswordConfirmPasswordSame">Password is not same</span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="offset-md-2 col-md-2 field-label-responsive">
+                <label for="Mobile_Number">Mobile Number</label>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon" style="width: 2.6rem">
+                      <i class="fas fa-phone-square"></i>
+                    </div>
+                    <input type="text" name="mobileNumber" ng-model="register.profile.mobileNo" ng-pattern="/^(\+\d{1,3}[- ]?)?\d{10}$/" class="form-control"
+                      id="mobileNumber" placeholder="Number" required>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-control-feedback">
+                  <span ng-messages="registerForm.mobileNumber.$error" ng-show="registerForm.mobileNumber.$touched">
+                    <span class="badge badge-danger" ng-message="required">This is required</span>
+                    <span class="badge badge-danger" ng-message="pattern">Invalid! +91mobileno is valid pattern.</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="offset-md-2 col-md-2 field-label-responsive">
+                <label for="Mobile_Number">Gotra</label>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <input type="text" name="gotra" ng-model="register.profile.gotra" class="form-control" id="gotra" placeholder="gotra" required>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-control-feedback">
+                  <span ng-messages="registerForm.gotra.$error" ng-show="registerForm.gotra.$touched">
+                    <span class="badge badge-danger" ng-message="required">This is required</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="offset-md-2 col-md-2 field-lab-responsive">
+                <label for="Birth_Date">Birth_Date</label>
+              </div>
+              <div class="col-md-6">
+                <div class="well">
+                  <div class="form-group">
+                    <input type="date" ng-model="register.profile.birthDate" class="form-control  mb-2 mr-sm-2 mb-sm-0" id="birthDate" name="birthDate"
+                      placeholder="Date of Birth">
+                  </div>
+                </div>
+              </div>
+              <!--div class="col-md-2">
+                <div class="form-control-feedback">
+                  <span>
+                    <span ng-messages="registerForm.birthDate.$error" ng-show="registerForm.birthDate.$touched">
+                      <span class="badge badge-danger" ng-message="required">This is required</span>
+                    </span>
+                  </span>
+                </div>
+              </div-->
+            </div>
+            <div class="row">
+              <div class="offset-md-2 col-md-2 field-lab-responsive">
+                <label for="Birth_Date">Sangh</label>
+              </div>
+              <div class="col-md-6">
+                <div class="well">
+                  <div class="form-group">
+                    <select id="sangh" name="sangh" ng-model="register.profile.sangh" required class="form-control " id="sel1 ">
+                      <option value="">-</option>
+                      <option value="Pune">Pune</option>
+                      <option value="Nagpur">Nagpur</option>
+                      <option value="Thane">Thane</option>
+                      <option value="Amravati">Amravati</option>
+                      <option value="Khamgoan">Khamgoan</option>
+                      <option value="Nashik">Nashik</option>
+                      <option value="Mumbai">Mumbai</option>
+                      <option value="Amalner">Amalner</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-control-feedback">
+                  <span>
+                    <span ng-messages="registerForm.sangh.$error" ng-show="registerForm.sangh.$touched">
+                      <span class="badge badge-danger" ng-message="required">This is required</span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="offset-md-2 col-md-2 field-lab-responsive">
+                <label for="Birth_Date">Blood Group</label>
+              </div>
+              <div class="col-md-6">
+                <div class="well">
+                  <div class="form-group">
+                    <select name="bloodGroup" ng-model="register.profile.bloodGroup" required class="form-control " id="bloodGroup ">
+                      <option value="">-</option>
+                      <option value="O-positive">O-positive</option>
+                      <option value="O-negative">O-negative</option>
+                      <option value="A-positive">A-positive</option>
+                      <option value="A-negative">A-negative</option>
+                      <option value="B-positive">B-positive</option>
+                      <option value="B-negative">B-negative</option>
+                      <option value="Mumbai">AB-positive</option>
+                      <option value="Amalner">AB-negative</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-control-feedback">
+                  <span>
+                    <span ng-messages="registerForm.sangh.$error" ng-show="registerForm.sangh.$touched">
+                      <span class="badge badge-danger" ng-message="required">This is required</span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+           
+            <div class="row">
+              <div class="offset-md-2 col-md-2 field-label-responsive">
+                <label for="Profession">Details of Service</label>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+
+                    <div class="input-group-addon " style="width: 2.6rem ">
+                      <i class="fas fa-location-arrow "></i>
+                    </div>
+
+                    <input type="string" name="service" ng-model="register.profile.service" class="form-control" id="Service" placeholder="Details of Profession">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="offset-md-2 col-md-2 field-label-responsive">
+                <label for="Profession">Designation in Service</label>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon" style="width: 2.6rem">
+
+                    </div>
+                    <input type="string" name="designation" ng-model="register.profile.designation" class="form-control" id="designation" placeholder="Designation in Service">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="offset-md-2 col-md-2 field-label-responsive">
+                <label for="Profession">Details of Business</label>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon" style="width: 2.6rem">
+
+                    </div>
+                    <input type="string" name="business" ng-model="register.profile.business" class="form-control" id="business" placeholder="Details of Business">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="row">
+              <div class="offset-md-2 col-md-2 field-label-responsive">
+                <label for="Gender">Gender</label>
+              </div>
+              <div class="col-md-1 radio">
+                <label>
+                  <input type="radio" required ng-model="register.profile.gender" value="Male" name="gender">Male</label>
+              </div>
+              <div class="radio col-md-1">
+                <label>
+                  <input type="radio" required ng-model="register.profile.gender" value="Female" name="gender">Female</label>
+              </div>
+              <div class="col-md-2">
+                <div class="form-control-feedback">
+                  <span ng-messages="registerForm.gender.$error" ng-show="registerForm.gender.$touched">
+                    <span class="badge badge-danger" ng-message="required">This is required</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row" style="padding-top:20px">
+              <div class="offset-md-2 col-md-2 field-label-responsive">
+                <label for="Address">Address</label>
+              </div>
+
+              <div class="col-md-6" style="border:solid lightgray 1px; border-radius:4px;padding:10px">
+                <div class="col-md-6">
+                  <label for="Current_Address">Business/Service Organization Address</label>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                      <div class="input-group-addon" style="width: 2.6rem">
+                        <i class="fas fa-address-book"></i>
+
+                      </div>
+                      <input type="string" name="serviceAddress" ng-model="register.profile.serviceAddress.line" class="form-control" id="serviceAddress"
+                        placeholder="" required>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-control-feedback">
+                      <span ng-messages="registerForm.serviceAddress.$error" ng-show="registerForm.serviceAddress.$touched">
+                        <span class="badge badge-danger" ng-message="required">This is required</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" style="margin:0px">
+                  <div class="col-md-2">
+                    <label for="Current_Address">City</label>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input type="string" name="serviceAddressCity" ng-model="register.profile.serviceAddress.city" class="form-control" id="serviceAddressCity"
+                          placeholder="" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <label for="Current_Address">State</label>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input type="string" name="serviceAddressState" ng-model="register.profile.serviceAddress.state" class="form-control" id="serviceAddressState"
+                          placeholder="" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" style="margin:0px">
+                  <div class="offset-md-2 col-md-4">
+                    <div class="form-control-feedback">
+                      <span ng-messages="registerForm.serviceAddressCity.$error" ng-show="registerForm.serviceAddressCity.$touched">
+                        <span class="badge badge-danger" ng-message="required">This is required</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="offset-md-2 col-md-4">
+                    <div class="form-control-feedback">
+                      <span ng-messages="registerForm.serviceAddressState.$error" ng-show="registerForm.serviceAddressState.$touched">
+                        <span class="badge badge-danger" ng-message="required">This is required</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" style="margin:0px">
+                  <div class="col-md-2">
+                    <label for="Current_Address">ZipCode</label>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input type="string" name="serviceAddressZipCode" ng-model="register.profile.serviceAddress.zipCode" class="form-control"
+                          id="serviceAddressZipCode" placeholder="" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <label for="Current_Address">Country</label>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input type="string" name="serviceAddressCountry" ng-model="register.profile.serviceAddress.country" class="form-control"
+                          id="serviceAddressCountry" placeholder="" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" style="margin:0px">
+                  <div class="offset-md-2 col-md-4">
+                    <div class="form-control-feedback">
+                      <span ng-messages="registerForm.serviceAddressZipcode.$error" ng-show="registerForm.serviceAddressZipcode.$touched">
+                        <span class="badge badge-danger" ng-message="required">This is required</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="offset-md-2 col-md-4">
+                    <div class="form-control-feedback">
+                      <span ng-messages="registerForm.serviceAddressCountry.$error" ng-show="registerForm.serviceAddressCountry.$touched">
+                        <span class="badge badge-danger" ng-message="required">This is required</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="Current_Address">Current Address</label>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                      <div class="input-group-addon" style="width: 2.6rem">
+                        <i class="fas fa-address-book"></i>
+
+                      </div>
+                      <input type="string" name="currentAddress" ng-model="register.profile.currentAddress.line" class="form-control" id="currentAddress"
+                        placeholder="" required>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-control-feedback">
+                      <span ng-messages="registerForm.currentAddress.$error" ng-show="registerForm.currentAddress.$touched">
+                        <span class="badge badge-danger" ng-message="required">This is required</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" style="margin:0px">
+                  <div class="col-md-2">
+                    <label for="Current_Address">City</label>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input type="string" name="currentAddressCity" ng-model="register.profile.currentAddress.city" class="form-control" id="currentAddressCity"
+                          placeholder="" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <label for="Current_Address">State</label>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+
+                        <input type="string" name="currentAddressState" ng-model="register.profile.currentAddress.state" class="form-control" id="currentAddressState"
+                          placeholder="" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" style="margin:0px">
+                  <div class="offset-md-2 col-md-4">
+                    <div class="form-control-feedback">
+                      <span ng-messages="registerForm.currentAddressCity.$error" ng-show="registerForm.currentAddressCity.$touched">
+                        <span class="badge badge-danger" ng-message="required">This is required</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="offset-md-2 col-md-4">
+                    <div class="form-control-feedback">
+                      <span ng-messages="registerForm.currentAddressState.$error" ng-show="registerForm.currentAddressState.$touched">
+                        <span class="badge badge-danger" ng-message="required">This is required</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" style="margin:0px">
+                  <div class="col-md-2">
+                    <label for="Current_Address">Zip Code</label>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input type="string" name="currentAddressZipCode" ng-model="register.profile.currentAddress.zipCode" class="form-control"
+                          id="currentAddressZipCode" placeholder="" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <label for="Current_Address">Country</label>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input type="string" name="currentAddressCountry" ng-model="register.profile.currentAddress.country" class="form-control"
+                          id="currentAddressCountry" placeholder="" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" style="margin:0px">
+                  <div class="offset-md-2 col-md-4">
+                    <div class="form-control-feedback">
+                      <span ng-messages="registerForm.currentAddressZipcode.$error" ng-show="registerForm.currentAddressZipcode.$touched">
+                        <span class="badge badge-danger" ng-message="required">This is required</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="offset-md-2 col-md-4">
+                    <div class="form-control-feedback">
+                      <span ng-messages="registerForm.currentAddressCountry.$error" ng-show="registerForm.currentAddressCountry.$touched">
+                        <span class="badge badge-danger" ng-message="required">This is required</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="permanent_Address">Permanent Address</label>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                      <div class="input-group-addon" style="width: 2.6rem">
+                        <i class="fas fa-address-book"></i>
+
+                      </div>
+                      <input type="string" name="permanentAddress" ng-model="register.profile.permanentAddress.line" class="form-control" id="permanentAddress"
+                        placeholder="" required>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-control-feedback">
+                      <span ng-messages="registerForm.permanentAddress.$error" ng-show="registerForm.permanentAddress.$touched">
+                        <span class="badge badge-danger" ng-message="required">This is required</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" style="margin:0px">
+                  <div class="col-md-2">
+                    <label for="Current_Address">City</label>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input type="string" name="permanentAddressCity" ng-model="register.profile.permanentAddress.city" class="form-control" id="permanentAddressCity"
+                          placeholder="" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <label for="Current_Address">State</label>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+
+                        <input type="string" name="permanentAddressState" ng-model="register.profile.permanentAddress.state" class="form-control"
+                          id="permanentAddressState" placeholder="" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" style="margin:0px">
+                  <div class="offset-md-2 col-md-4">
+                    <div class="form-control-feedback">
+                      <span ng-messages="registerForm.permanentAddressCity.$error" ng-show="registerForm.permanentAddressCity.$touched">
+                        <span class="badge badge-danger" ng-message="required">This is required</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="offset-md-2 col-md-4">
+                    <div class="form-control-feedback">
+                      <span ng-messages="registerForm.permanentAddressState.$error" ng-show="registerForm.permanentAddressState.$touched">
+                        <span class="badge badge-danger" ng-message="required">This is required</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" style="margin:0px">
+                  <div class="col-md-2">
+                    <label for="Current_Address">Zip code</label>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input type="string" name="permanentAddressZipcode" ng-model="register.profile.permanentAddress.zipcode" id="permanentAddressZipcode"
+                          placeholder="" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <label for="Current_Address">Country</label>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input type="string" name="permanentAddressCountry" ng-model="register.profile.permanentAddress.country" class="form-control"
+                          id="permanentAddressCountry" placeholder="" required>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="row" style="margin:0px">
+                  <div class="offset-md-2 col-md-4">
+                    <div class="form-control-feedback">
+                      <span ng-messages="registerForm.permanentAddressZipcode.$error" ng-show="registerForm.permanentAddressZipcode.$touched">
+                        <span class="badge badge-danger" ng-message="required">This is required</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="offset-md-2 col-md-4">
+                    <div class="form-control-feedback">
+                      <span ng-messages="registerForm.permanentAddressCountry.$error" ng-show="registerForm.permanentAddressCountry.$touched">
+                        <span class="badge badge-danger" ng-message="required">This is required</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row text-white py-4">
+              <div class="offset-md-5 col-md-3">
+                <button ng-disabled="!registerForm.$valid" title="Please fill the required fields in the form then button will be enabled."
+                  type="button" ng-click="register.register();" class="btn btn-primary">
+                  <i class="fa fa-user-plus"></i> Register</button>
+                <!--button ng-show="!registerForm.$error" type="submit" class="btn btn-primary">
+                  <i class="fa fa-user-plus"></i> Register</button-->
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
