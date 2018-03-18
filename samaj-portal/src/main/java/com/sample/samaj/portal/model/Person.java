@@ -25,11 +25,11 @@ public class Person {
     private Long id;
     
     @Size(min=3, max=50)
-    @Column(name = "EMAIL", nullable = false, unique=true)
+    @Column(name = "EMAIL")
     private String email;
     
     
-    @Column(name = "PASSWORD", nullable = false)
+    @Column(name = "PASSWORD")
     private String password;
     
     
@@ -39,7 +39,7 @@ public class Person {
     
 
     @Size(min=3, max=50)
-    @Column(name = "MIDDLE_NAME", nullable = false)
+    @Column(name = "MIDDLE_NAME")
     private String middleName;
     
     @Size(min=3, max=50)
@@ -47,7 +47,7 @@ public class Person {
     private String lastName;
     
     @Size(min=3, max=50)
-    @Column(name = "SANGH", nullable = false)
+    @Column(name = "SANGH")
     private String sangh;
     
     @Size(min=3, max=50)
@@ -56,7 +56,7 @@ public class Person {
     
     
     @Size(min=3, max=50)
-    @Column(name = "MOBILE_NO", nullable = false)
+    @Column(name = "MOBILE_NO")
     private String mobileNo;
     
     @Size(min=3, max=50)
@@ -148,9 +148,8 @@ public class Person {
 	@Column(name = "VADHU_WAR_MELAVA")
     private String vadhuVarMelava;
 	
-	@Digits(integer=8, fraction=2)
-    @Column(name = "SALARY")
-    private BigDecimal salary;
+	@Column(name = "SALARY")
+    private String salary;
     
 	@Column(name = "EXPERTISE")
     private String expertise;
@@ -514,11 +513,11 @@ public class Person {
 		this.motherLastName = motherLastName;
 	}
 
-	public BigDecimal getSalary() {
+	public String getSalary() {
 		return salary;
 	}
 
-	public void setSalary(BigDecimal salary) {
+	public void setSalary(String salary) {
 		this.salary = salary;
 	}	
 

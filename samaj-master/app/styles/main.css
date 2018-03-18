@@ -157,7 +157,7 @@ background-color:#212198;
 .foot1{
   background-color: #5c0f32;
   color:white;
-  height: 85px;
+  height: 100px;
   padding-top:18px;
 
 
@@ -380,4 +380,10 @@ text-align:justify;
 }
 p{
   font-size:15px;
+}
+
+#contactInfo span{
+  padding:10px;
+  margin:18px;
+  font-size:14px;
 }

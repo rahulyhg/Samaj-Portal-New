@@ -2,13 +2,9 @@ package com.sample.samaj.portal.controller;
 
 import java.util.ArrayList;
 import java.util.Base64;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.BeanWrapper;
-import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -27,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sample.samaj.portal.model.Person;
+import com.sample.samaj.portal.pojo.ChangePassword;
 import com.sample.samaj.portal.pojo.DocumentBase64;
 import com.sample.samaj.portal.pojo.Filter;
 import com.sample.samaj.portal.repository.PersonRepository;
@@ -79,6 +76,14 @@ public class MainController {
 		}
 		return personRepository.findAll(userSpecification	);
 	}
+	
+	@PostMapping(path = "/changePassword")
+	public Person changePassword(@RequestBody ChangePassword changePassword) {
+		Person person=personRepository.findByEmail(changePassword.getId());
+		person.setPassword(bCryptPasswordEncoder.encode(changePassword.getNewPassword()));
+		return personRepository.save(person);
+	}
+	
 	
 	@PostMapping(path = "/filter")
 	public PagedResources<Resource<Person>> getPersonByCriteria(@RequestBody Filter filter,Pageable pageRequest,PagedResourcesAssembler<Person> assembler) {

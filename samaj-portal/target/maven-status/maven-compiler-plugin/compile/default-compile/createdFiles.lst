@@ -22,4 +22,5 @@ com\sample\samaj\portal\pojo\DocumentBase64.class
 com\sample\samaj\portal\model\Address.class
 com\sample\samaj\portal\service\DocumentServiceImpl.class
 com\sample\samaj\portal\authapi\security\SecurityConstants.class
+com\sample\samaj\portal\pojo\ChangePassword.class
 com\sample\samaj\portal\pojo\Login.class

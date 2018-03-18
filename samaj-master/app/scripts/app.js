@@ -82,6 +82,11 @@ angular
         controller: 'ContactsCtrl',
         controllerAs: 'contacts'
       })
+      .when('/changePassword',{
+        templateUrl: 'views/changePassword.html',
+        controller: 'ChangePasswordCtrl',
+        controllerAs: 'changePassword'
+      })
       .otherwise({
         redirectTo: '/login'
       });

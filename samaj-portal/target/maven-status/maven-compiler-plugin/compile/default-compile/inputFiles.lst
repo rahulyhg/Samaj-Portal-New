@@ -2,6 +2,7 @@ E:\samaj-final\samaj-portal\src\main\java\com\sample\samaj\portal\repository\Use
 E:\samaj-final\samaj-portal\src\main\java\com\sample\samaj\portal\SwaggerConfig.java
 E:\samaj-final\samaj-portal\src\main\java\com\sample\samaj\portal\repository\SearchCriteria.java
 E:\samaj-final\samaj-portal\src\main\java\com\sample\samaj\portal\controller\MainController.java
+E:\samaj-final\samaj-portal\src\main\java\com\sample\samaj\portal\pojo\ChangePassword.java
 E:\samaj-final\samaj-portal\src\main\java\com\sample\samaj\portal\model\Person.java
 E:\samaj-final\samaj-portal\src\main\java\com\sample\samaj\portal\pojo\LoginResponse.java
 E:\samaj-final\samaj-portal\src\main\java\com\sample\samaj\portal\auth\TokenAuthenticationService.java
