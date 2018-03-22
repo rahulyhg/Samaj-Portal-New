@@ -13,13 +13,13 @@ angular.module('samajPortalApp')
     vm.isLoginSuccessful=true;
     vm.logIn = function () {
       Rest.login.save({
-        'id':vm.email,
+        'id':vm.userName,
         'password':vm.password
       },function(data){
           console.log('success login');
           $localStorage.token=data.headers.authorization;
-          $localStorage.id=vm.email;
-          $location.path('/browse');
+          $localStorage.id=vm.userName;
+          $location.path('/profile/'+vm.userName);
       },function(error){
           vm.isLoginSuccessful=false;
           console.log('Error',error);

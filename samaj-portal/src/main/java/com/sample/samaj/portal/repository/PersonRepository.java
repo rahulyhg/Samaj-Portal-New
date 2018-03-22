@@ -7,5 +7,5 @@ import com.sample.samaj.portal.model.Person;
 
 
 public interface PersonRepository extends PagingAndSortingRepository<Person, Long>, JpaSpecificationExecutor<Person>{
-	Person findByEmail(String email);
+	Person findByUserName(String userName);
 }

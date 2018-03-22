@@ -1,6 +1,6 @@
 package com.sample.samaj.portal.model;
  
-import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,8 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
  
@@ -24,10 +25,13 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Size(min=3, max=50)
+    
     @Column(name = "EMAIL")
     private String email;
     
+    @Size(min=5, max=50)
+    @Column(name = "USERNAME",unique= true)
+    private String userName;
     
     @Column(name = "PASSWORD")
     private String password;
@@ -71,10 +75,9 @@ public class Person {
     @Column(name = "FAMILY_TYPE")
     private String familyType;
     
-    //@DateTimeFormat(pattern="mm/dd/yyyy") 
+    @DateTimeFormat(pattern="yyyy-MM-dd") 
     @Column(name = "BIRTH_DATE")
-    //@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
-    private String birthDate;
+    private Date birthDate;
  
 	@Column(name = "BIRTH_TIME")
     private String birthTime;
@@ -150,6 +153,7 @@ public class Person {
 	
 	@Column(name = "SALARY")
     private String salary;
+	
     
 	@Column(name = "EXPERTISE")
     private String expertise;
@@ -223,10 +227,8 @@ public class Person {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	 
-	
-    
-    public String getPassword() {
+
+	public String getPassword() {
 		return password;
 	}
 
@@ -236,6 +238,15 @@ public class Person {
 
 	public String getFirstName() {
 		return firstName;
+	}
+	
+	
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public void setFirstName(String firstName) {
@@ -388,12 +399,12 @@ public class Person {
 		this.familyType = familyType;
 	}
 
-	
-	public String getBirthDate() {
+
+	public Date getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(String birthDate) {
+	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 

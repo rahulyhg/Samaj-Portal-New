@@ -27,6 +27,8 @@ angular.module('samajPortalApp')
           vm.getMaternalUncleInformation();
           vm.getPaternalUncleInformation();
           vm.getSiblingInformation();
+          vm.getPaternalGrandFatherInformation();
+          vm.getPaternalGrandMotherInformation();
           Rest.document.get({
             id: data.id
           }, function (imgData) {
@@ -89,6 +91,7 @@ angular.module('samajPortalApp')
       vm.edit = !vm.edit;
     };
 
+    //sibling 
     vm.getSiblingInformation = function () {
       if (vm.profile.fatherFirstName && vm.profile.fatherMiddleName && vm.profile.fatherLastName) {
         var filter = [];
@@ -124,9 +127,9 @@ angular.module('samajPortalApp')
       }
     };
     var filterSelf = function (data) {
-      var dataFilterd={};
-      dataFilterd._embedded={};
-      dataFilterd._embedded.personList=[];
+      var dataFilterd = {};
+      dataFilterd._embedded = {};
+      dataFilterd._embedded.personList = [];
       if (data.page.totalElements > 0) {
         for (var i = 0; i < data._embedded.personList.length; i++) {
           if (data._embedded.personList[i].id !== vm.profile.id) {
@@ -136,21 +139,24 @@ angular.module('samajPortalApp')
       }
       return dataFilterd;
     };
+
+
+    //children
     vm.getChildrenInformation = function () {
       if (vm.profile.firstName && vm.profile.middleName && vm.profile.lastName) {
         var filter = [];
         var fatherFirstQuery = {};
-        fatherFirstQuery.key = 'fatherFirstName';
+        fatherFirstQuery.key = vm.profile.gender === 'Male' ? 'fatherFirstName' : 'motherFirstName';
         fatherFirstQuery.operator = 'equal';
         fatherFirstQuery.value = vm.profile.firstName;
 
         var fatherMiddleQuery = {};
-        fatherMiddleQuery.key = 'fatherMiddleName';
+        fatherMiddleQuery.key = vm.profile.gender === 'Male' ? 'fatherMiddleName' : 'motherMiddleName';
         fatherMiddleQuery.operator = 'equal';
         fatherMiddleQuery.value = vm.profile.middleName;
 
         var fatherLastQuery = {};
-        fatherLastQuery.key = 'fatherLastName';
+        fatherLastQuery.key = vm.profile.gender === 'Male' ? 'fatherLastName' : 'motherLastName';
         fatherLastQuery.operator = 'equal';
         fatherLastQuery.value = vm.profile.lastName;
 
@@ -171,7 +177,7 @@ angular.module('samajPortalApp')
       }
     };
 
-    vm.getPaternalUncleInformation = function () {
+    vm.getPaternalGrandFatherInformation = function () {
       if (vm.profile.fatherFirstName && vm.profile.fatherMiddleName && vm.profile.fatherLastName) {
         var filter = [];
         var fatherFirstQuery = {};
@@ -199,8 +205,9 @@ angular.module('samajPortalApp')
         };
         //get grand father
         Rest.browse.save(searchObj, function (data) {
+          data = data.page.totalElements === 1 ? data._embedded.personList[0] : {};
           if (data.fatherFirstName && data.fatherMiddleName && data.fatherLastName) {
-            data = filterSelf(data);
+            //data = filterSelf(data);
             var filter = [];
             var fatherFirstQuery = {};
             fatherFirstQuery.key = 'firstName';
@@ -235,8 +242,39 @@ angular.module('samajPortalApp')
         }, function (error) {
           console.log('error', error);
         });
+      }
+    };
+
+
+    vm.getPaternalGrandMotherInformation = function () {
+      if (vm.profile.fatherFirstName && vm.profile.fatherMiddleName && vm.profile.fatherLastName) {
+        var filter = [];
+        var fatherFirstQuery = {};
+        fatherFirstQuery.key = 'firstName';
+        fatherFirstQuery.operator = 'equal';
+        fatherFirstQuery.value = vm.profile.fatherFirstName;
+
+        var fatherMiddleQuery = {};
+        fatherMiddleQuery.key = 'middleName';
+        fatherMiddleQuery.operator = 'equal';
+        fatherMiddleQuery.value = vm.profile.fatherMiddleName;
+
+        var fatherLastQuery = {};
+        fatherLastQuery.key = 'lastName';
+        fatherLastQuery.operator = 'equal';
+        fatherLastQuery.value = vm.profile.fatherLastName;
+
+        filter.push(fatherFirstQuery);
+        filter.push(fatherMiddleQuery);
+        filter.push(fatherLastQuery);
+
+
+        var searchObj = {
+          'filter': filter
+        };
         //get grand mother
         Rest.browse.save(searchObj, function (data) {
+          data = data.page.totalElements === 1 ? data._embedded.personList[0] : {};
           if (data.motherFirstName && data.motherMiddleName && data.motherLastName) {
             var filter = [];
             var motherFirstQuery = {};
@@ -272,49 +310,88 @@ angular.module('samajPortalApp')
         }, function (error) {
           console.log('error', error);
         });
+      }
+    };
 
-        //paternal uncle
+    //Sibling
+    vm.getPaternalUncleInformation = function () {
+      if (vm.profile.fatherFirstName && vm.profile.fatherMiddleName && vm.profile.fatherLastName) {
+        var filter = [];
+        var fatherFirstQuery = {};
+        fatherFirstQuery.key = 'firstName';
+        fatherFirstQuery.operator = 'equal';
+        fatherFirstQuery.value = vm.profile.fatherFirstName;
+
+        var fatherMiddleQuery = {};
+        fatherMiddleQuery.key = 'middleName';
+        fatherMiddleQuery.operator = 'equal';
+        fatherMiddleQuery.value = vm.profile.fatherMiddleName;
+
+        var fatherLastQuery = {};
+        fatherLastQuery.key = 'lastName';
+        fatherLastQuery.operator = 'equal';
+        fatherLastQuery.value = vm.profile.fatherLastName;
+
+        filter.push(fatherFirstQuery);
+        filter.push(fatherMiddleQuery);
+        filter.push(fatherLastQuery);
+
+
+        var searchObj = {
+          'filter': filter
+        };
+
         Rest.browse.save(searchObj, function (data) {
-          if (data.fatherFirstName && data.fatherMiddleName && data.fatherLastName) {
-            var filter = [];
-            var fatherFirstQuery = {};
-            fatherFirstQuery.key = 'fatherFirstName';
-            fatherFirstQuery.operator = 'equal';
-            fatherFirstQuery.value = data.fatherFirstName;
+            if (data.page.totalElements === 1) {
+              data = data._embedded.personList[0];
+              if (data.fatherFirstName && data.fatherMiddleName && data.fatherLastName) {
+                var filter = [];
+                var fatherFirstQuery = {};
+                fatherFirstQuery.key = 'fatherFirstName';
+                fatherFirstQuery.operator = 'equal';
+                fatherFirstQuery.value = data.fatherFirstName;
 
-            var fatherMiddleQuery = {};
-            fatherMiddleQuery.key = 'fatherMiddleName';
-            fatherMiddleQuery.operator = 'equal';
-            fatherMiddleQuery.value = data.fatherMiddleName;
+                var fatherMiddleQuery = {};
+                fatherMiddleQuery.key = 'fatherMiddleName';
+                fatherMiddleQuery.operator = 'equal';
+                fatherMiddleQuery.value = data.fatherMiddleName;
 
-            var fatherLastQuery = {};
-            fatherLastQuery.key = 'fatherLastName';
-            fatherLastQuery.operator = 'equal';
-            fatherLastQuery.value = data.fatherLastName;
+                var fatherLastQuery = {};
+                fatherLastQuery.key = 'fatherLastName';
+                fatherLastQuery.operator = 'equal';
+                fatherLastQuery.value = data.fatherLastName;
 
-            filter.push(fatherFirstQuery);
-            filter.push(fatherMiddleQuery);
-            filter.push(fatherLastQuery);
+                filter.push(fatherFirstQuery);
+                filter.push(fatherMiddleQuery);
+                filter.push(fatherLastQuery);
 
 
-            var searchObj = {
-              'filter': filter
-            };
-            Rest.browse.save(searchObj, function (data) {
-              data = filterSelf(data);
-              vm.searchDataPaternal = data;
-            }, function (error) {
-              console.log('error', error);
-            });
-          }
-        }, function (error) {
-          console.log('error', error);
-        });
+                var searchObj = {
+                  'filter': filter
+                };
+                Rest.browse.save(searchObj, function (data) {
+                  data = filterSelf(data);
+                  vm.searchDataPaternal = data;
+                }, function (error) {
+                  console.log('error', error);
+                });
+              } else {
+                var dataF = {};
+                dataF._embedded = {};
+                dataF._embedded.personList = [];
+                dataF._embedded.personList.push(data);
+                vm.searchDataPaternal = dataF;
+              }
+            }
+          },
+          function (error) {
+            console.log('error', error);
+          });
       }
     };
 
     vm.getMaternalUncleInformation = function () {
-      if (vm.profile.motherFirstName && vm.profile.motherMiddleName && vm.profile.motherLasttName) {
+      if (vm.profile.motherFirstName && vm.profile.motherMiddleName && vm.profile.motherLastName) {
         var filter = [];
         var motherFirstQuery = {};
         motherFirstQuery.key = 'firstName';
@@ -329,7 +406,7 @@ angular.module('samajPortalApp')
         var motherLastQuery = {};
         motherLastQuery.key = 'lastName';
         motherLastQuery.operator = 'equal';
-        motherLastQuery.value = vm.profile.motherLasttName;
+        motherLastQuery.value = vm.profile.motherLastName;
 
         filter.push(motherFirstQuery);
         filter.push(motherMiddleQuery);
@@ -337,11 +414,12 @@ angular.module('samajPortalApp')
 
 
         var searchObj = {
-          'filter': vm.filter
+          'filter': filter
         };
         Rest.browse.save(searchObj, function (data) {
+          data = data.page.totalElements === 1 ? data._embedded.personList[0] : {};
           if (data.fatherFirstName && data.fatherMiddleName && data.fatherLastName) {
-            data = filterSelf(data);
+            //data = filterSelf(data);
             var filter = [];
             var fatherFirstQuery = {};
             fatherFirstQuery.key = 'firstName';
@@ -367,7 +445,7 @@ angular.module('samajPortalApp')
               'filter': filter
             };
             Rest.browse.save(searchObj, function (data) {
-              data = filterSelf(data);
+              //data = filterSelf(data);
               vm.searchDatMaternalGrandFather = data;
             }, function (error) {
               console.log('error', error);
@@ -378,8 +456,9 @@ angular.module('samajPortalApp')
         });
 
         Rest.browse.save(searchObj, function (data) {
+          data = data.page.totalElements === 1 ? data._embedded.personList[0] : {};
           if (data.motherFirstName && data.motherMiddleName && data.motherLastName) {
-            data = filterSelf(data);
+            //data = filterSelf(data);
             var filter = [];
             var motherFirstQuery = {};
             motherFirstQuery.key = 'firstName';
@@ -416,38 +495,47 @@ angular.module('samajPortalApp')
         });
 
         Rest.browse.save(searchObj, function (data) {
-          if (data.fatherFirstName && data.fatherMiddleName && data.fatherLastName) {
-            data = filterSelf(data);
-            var filter = [];
-            var fatherFirstQuery = {};
-            fatherFirstQuery.key = 'fatherFirstName';
-            fatherFirstQuery.operator = 'equal';
-            fatherFirstQuery.value = data.fatherFirstName;
+          if (data.page.totalElements === 1) {
+            data = data._embedded.personList[0];
+            if (data.fatherFirstName && data.fatherMiddleName && data.fatherLastName) {
+              //data = filterSelf(data);
+              var filter = [];
+              var fatherFirstQuery = {};
+              fatherFirstQuery.key = 'fatherFirstName';
+              fatherFirstQuery.operator = 'equal';
+              fatherFirstQuery.value = data.fatherFirstName;
 
-            var fatherMiddleQuery = {};
-            fatherMiddleQuery.key = 'fatherMiddleName';
-            fatherMiddleQuery.operator = 'equal';
-            fatherMiddleQuery.value = data.fatherMiddleName;
+              var fatherMiddleQuery = {};
+              fatherMiddleQuery.key = 'fatherMiddleName';
+              fatherMiddleQuery.operator = 'equal';
+              fatherMiddleQuery.value = data.fatherMiddleName;
 
-            var fatherLastQuery = {};
-            fatherLastQuery.key = 'fatherLastName';
-            fatherLastQuery.operator = 'equal';
-            fatherLastQuery.value = data.fatherLastName;
+              var fatherLastQuery = {};
+              fatherLastQuery.key = 'fatherLastName';
+              fatherLastQuery.operator = 'equal';
+              fatherLastQuery.value = data.fatherLastName;
 
-            filter.push(fatherFirstQuery);
-            filter.push(fatherMiddleQuery);
-            filter.push(fatherLastQuery);
+              filter.push(fatherFirstQuery);
+              filter.push(fatherMiddleQuery);
+              filter.push(fatherLastQuery);
 
 
-            var searchObj = {
-              'filter': filter
-            };
-            Rest.browse.save(searchObj, function (data) {
-              data = filterSelf(data);
-              vm.searchDataMaternal = data;
-            }, function (error) {
-              console.log('error', error);
-            });
+              var searchObj = {
+                'filter': filter
+              };
+              Rest.browse.save(searchObj, function (data) {
+                data = filterSelf(data);
+                vm.searchDataMaternal = data;
+              }, function (error) {
+                console.log('error', error);
+              });
+            } else {
+              var dataF = {};
+              dataF._embedded = {};
+              dataF._embedded.personList = [];
+              dataF._embedded.personList.push(data);
+              vm.searchDataMaternal = dataF;
+            }
           }
         }, function (error) {
           console.log('error', error);

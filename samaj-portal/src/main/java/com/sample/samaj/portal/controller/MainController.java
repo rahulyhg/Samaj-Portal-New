@@ -12,7 +12,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.PagedResources;
 import org.springframework.hateoas.Resource;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +21,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
+import com.sample.samaj.portal.authapi.security.MyPasswordEncoder;
 import com.sample.samaj.portal.model.Person;
 import com.sample.samaj.portal.pojo.ChangePassword;
 import com.sample.samaj.portal.pojo.DocumentBase64;
@@ -37,7 +39,7 @@ public class MainController {
 	private PersonRepository personRepository;
 	
 	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	private MyPasswordEncoder bCryptPasswordEncoder;
 
 	@PostMapping(path = "/add")
 	public @ResponseBody String addNewPerson(@RequestBody Person person) {
@@ -79,7 +81,7 @@ public class MainController {
 	
 	@PostMapping(path = "/changePassword")
 	public Person changePassword(@RequestBody ChangePassword changePassword) {
-		Person person=personRepository.findByEmail(changePassword.getId());
+		Person person=personRepository.findByUserName(changePassword.getId());
 		person.setPassword(bCryptPasswordEncoder.encode(changePassword.getNewPassword()));
 		return personRepository.save(person);
 	}
@@ -115,13 +117,25 @@ public class MainController {
 	
 	@RequestMapping(path = "/profile/{id}", method = RequestMethod.GET, produces = "application/json")
 	public Person getProfile(@PathVariable String id) {
-		return personRepository.findByEmail(id);
+		Person person=null;
+		try{
+			person=personRepository.findById(Long.parseLong(id)).get();
+		}catch(NumberFormatException nfe){
+			person=personRepository.findByUserName(id);
+		}
+		if(person == null){
+			throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+		}else{
+			return person;
+		}
 	}
+	
+	
 	
 	@RequestMapping(path = "/profile", method = RequestMethod.PUT, produces = "application/json",consumes = "application/json")
 	public Person getProfile(@RequestBody Person person) {
 		   Person existing = personRepository.findById(person.getId()).get();
-		   String pass[]={"password"};
+		   String pass[]={"password","image"};
 		   BeanUtils.copyProperties(person, existing,pass);
 		   return personRepository.save(existing);
 	}

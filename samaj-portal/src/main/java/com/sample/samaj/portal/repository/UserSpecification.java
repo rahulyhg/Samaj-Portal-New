@@ -1,7 +1,12 @@
 package com.sample.samaj.portal.repository;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
@@ -24,11 +29,22 @@ public class UserSpecification implements Specification<Person> {
 
 	@Override
 	public Predicate toPredicate(Root<Person> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
-
-		if (criteria.getOperator().equalsIgnoreCase(">")) {
-			return builder.greaterThanOrEqualTo(root.<String>get(criteria.getKey()), criteria.getValue().toString());
-		} else if (criteria.getOperator().equalsIgnoreCase("<")) {
-			return builder.lessThanOrEqualTo(root.<String>get(criteria.getKey()), criteria.getValue().toString());
+		SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
+		
+		if (criteria.getOperator().equalsIgnoreCase("greater than")) {
+			try {
+				return builder.greaterThanOrEqualTo(root.<Date>get(criteria.getKey()), myFormat.parse(criteria.getValue().toString()));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if (criteria.getOperator().equalsIgnoreCase("less than")) {
+			try {
+				return builder.lessThanOrEqualTo(root.<Date>get(criteria.getKey()), myFormat.parse(criteria.getValue().toString()));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} else if (criteria.getOperator().equalsIgnoreCase("=") || criteria.getOperator().equalsIgnoreCase("equal")) {
 			return builder.equal(root.get(criteria.getKey()), criteria.getValue());
 		} else if (criteria.getOperator().equalsIgnoreCase("!=") || criteria.getOperator().equalsIgnoreCase("not equal")) {

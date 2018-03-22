@@ -46,6 +46,9 @@ angular.module('samajPortalApp')
 
     searchKeys[23]='bloodGroup';
     searchKeys[24]='vadhuVarMelava';
+    searchKeys[25]='birthDate';
+    searchKeys[26]='profession';
+    
     for(var i=0;i<searchKeys.length;i++){
         vm.search[i]={};
         vm.search[i].key=searchKeys[i];

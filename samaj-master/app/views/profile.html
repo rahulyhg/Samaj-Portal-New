@@ -13,7 +13,7 @@
           <div style="display:flex; flex-direction: row; justify-content: center; align-items: center" class="col-md-12">
             <div class="col-md-2">
               <img ng-if="profile.isImageFound " data-ng-src="data:image/JPEG;base64,{{profile.imageData}}" />
-              <img style="width:150px;height:150px" ng-if="!profile.isImageFound " src="/images/yeoman.png" />
+              <img style="width:150px;height:150px" ng-if="!profile.isImageFound " src="/images/yeoman.jpg" />
             </div>
           </div>
           <div ng-show="profile.edit" style="display:flex; flex-direction: row; justify-content: center; align-items: center;padding:30px"
@@ -35,7 +35,7 @@
                   <div class="input-group-addon" style="width: 2.6rem">
                     <i class="fa fa-user"></i>
                   </div>
-                  <input type="text" name="firstName" ng-disabled="!profile.edit" class="form-control" id="firstName" ng-model="profile.profile.firstName"
+                  <input type="text" name="firstName" capitalize ng-disabled="!profile.edit" class="form-control" id="firstName" ng-model="profile.profile.firstName"
                     placeholder="First Name" required autofocus>
                 </div>
               </div>
@@ -43,7 +43,7 @@
 
             <div class="col-md-2">
               <div class="form-control-feedback">
-                <span ng-messages="profileForm.firstName.$error" ng-show="profileForm.firstName.$touched">
+                <span ng-messages="profileForm.firstName.$error" ng-show="profileForm.firstName.$error">
                   <span class="badge badge-danger" ng-message="required">This is required</span>
                 </span>
               </div>
@@ -59,7 +59,7 @@
                   <div class="input-group-addon" style="width: 2.6rem">
                     <i class="fa fa-user"></i>
                   </div>
-                  <input type="text" name="middleName" ng-disabled="!profile.edit" class="form-control" ng-model="profile.profile.middleName"
+                  <input type="text" name="middleName" capitalize ng-disabled="!profile.edit" class="form-control" ng-model="profile.profile.middleName"
                     id="middleName" placeholder="Middle Name" required autofocus>
                 </div>
               </div>
@@ -67,7 +67,7 @@
 
             <div class="col-md-2">
               <div class="form-control-feedback">
-                <span ng-messages="profileForm.middleName.$error" ng-show="profileForm.middleName.$touched">
+                <span ng-messages="profileForm.middleName.$error" ng-show="profileForm.middleName.$error">
                   <span class="badge badge-danger" ng-message="required">This is required</span>
                 </span>
               </div>
@@ -83,15 +83,15 @@
                   <div class="input-group-addon" style="width: 2.6rem">
                     <i class="fa fa-user"></i>
                   </div>
-                  <input type="text" name="lastName" ng-disabled="!profile.edit" class="form-control" ng-model="profile.profile.lastName" id="lastName"
-                    placeholder="Last Name" required autofocus>
+                  <input type="text" name="lastName" capitalize ng-disabled="!profile.edit" class="form-control" ng-model="profile.profile.lastName"
+                    id="lastName" placeholder="Last Name" required autofocus>
                 </div>
               </div>
             </div>
 
             <div class="col-md-2">
               <div class="form-control-feedback">
-                <span ng-messages="profileForm.lastName.$error" ng-show="profileForm.lastName.$touched">
+                <span ng-messages="profileForm.lastName.$error" ng-show="profileForm.lastName.$error">
                   <span class="badge badge-danger" ng-message="required">This is required</span>
                 </span>
               </div>
@@ -107,14 +107,14 @@
                   <div class="input-group-addon" style="width: 2.6rem">
                     <i class="fa fa-at"></i>
                   </div>
-                  <input type="text" name="email" ng-disabled="true" ng-model="profile.profile.email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/"
+                  <input type="text" name="email" ng-disabled="!profile.edit" ng-model="profile.profile.email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/"
                     class="form-control" id="email" placeholder="you@example.com" required autofocus>
                 </div>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-control-feedback">
-                <div ng-messages="profileForm.email.$error" ng-show="profileForm.email.$touched">
+                <div ng-messages="profileForm.email.$error" ng-show="profileForm.email.$error">
                   <span class="badge badge-danger" ng-message="required">This is required</span>
                   <span class="badge badge-danger" ng-message="pattern">The format must be
                     <em>id@domain.com</em>.</span>
@@ -132,21 +132,39 @@
                   <div class="input-group-addon" style="width: 2.6rem">
                     <i class="fas fa-phone-square"></i>
                   </div>
-                  <input type="text" ng-disabled="!profile.edit" name="mobileNumber" ng-model="profile.profile.mobileNo" ng-pattern="/^(\+\d{1,3}[- ]?)?\d{10}$/"
+                  <input type="text" ng-disabled="!profile.edit" name="mobileNumber" ng-model="profile.profile.mobileNo" ng-pattern="/^\d{10}$/"
                     class="form-control" id="mobileNumber" placeholder="Number" required>
                 </div>
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-control-feedback">
-                <span ng-messages="profileForm.mobileNumber.$error" ng-show="profileForm.mobileNumber.$touched">
+                <span ng-messages="profileForm.mobileNumber.$error" ng-show="profileForm.mobileNumber.$error">
                   <span class="badge badge-danger" ng-message="required">This is required</span>
-                  <span class="badge badge-danger" ng-message="pattern">Invalid! +91mobileno is valid pattern.</span>
+                  <span class="badge badge-danger" ng-message="pattern">Invalid Mobile No.</span>
                 </span>
               </div>
             </div>
           </div>
-
+          <div class="row">
+              <div class="offset-md-2 col-md-2 field-label-responsive">
+                <label for="Mobile_Number">Gotra</label>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <input type="text" name="gotra" ng-disabled="!profile.edit" ng-model="profile.profile.gotra" class="form-control" id="gotra" placeholder="gotra">
+                  </div>
+                </div>
+              </div>
+              <!--div class="col-md-2">
+                <div class="form-control-feedback">
+                  <span ng-messages="registerForm.gotra.$error" ng-show="registerForm.gotra.$error">
+                    <span class="badge badge-danger" ng-message="required">This is required</span>
+                  </span>
+                </div>
+              </div-->
+            </div>
           <div class="row">
             <div style="padding-top:10px" class="offset-md-2 col-md-2 field-label-responsive">
               <label for="Gender">Gender</label>
@@ -161,26 +179,35 @@
             </div>
 
           </div>
-          <div class="row">
+          <div ng-show="profile.profile.vadhuVarMelava == 'false'" class="row">
             <div style="padding-top:10px" class="offset-md-2 col-md-2 field-label-responsive">
               <label for="Gender">Marital Status:</label>
             </div>
             <div class="radio" style="padding:10px">
               <label>
-                <input ng-disabled="!profile.edit" type="radio" ng-model="profile.profile.maritalStatus" value="NeverMarried" name="naverMarried">Never Married </label>
+                <input ng-disabled="!profile.edit" type="radio" ng-model="profile.profile.maritalStatus" value="Single" name="Single">Single </label>
             </div>
             <div class="radio" style="padding:10px">
               <label>
-                <input ng-disabled="!profile.edit" type="radio" ng-model="profile.profile.maritalStatus" value="Divorced" name="divorced">Divorced</label>
+                <input ng-disabled="!profile.edit" type="radio" ng-model="profile.profile.maritalStatus" value="Married" name="Marries">Married</label>
             </div>
             <div class="radio" style="padding:10px">
+              <label>
+                <input  ng-disabled="!profile.edit" type="radio" ng-model="profile.profile.maritalStatus" value="Widow" name="Widow">Widow</label>
+            </div>
+            <div class="radio" style="padding:10px">
+              <label>
+                <input  ng-disabled="!profile.edit" type="radio" ng-model="profile.profile.maritalStatus" value="Saperated" name="Saperated">Saperated</label>
+            </div>
+            
+            <!--div class="radio" style="padding:10px">
               <label>
                 <input ng-disabled="!profile.edit" type="radio" ng-model="profile.profile.maritalStatus" value="Widowed" name="Widowed">Widowed</label>
             </div>
             <div class="radio" style="padding:10px">
               <label>
                 <input ng-disabled="!profile.edit" type="radio" ng-model="profile.profile.maritalStatus" value="Separated" name="Seperated">Seperated</label>
-            </div>
+            </div-->
 
           </div>
           <div class="row">
@@ -207,20 +234,20 @@
             <div class="col-md-6">
               <div class="well">
                 <div class="form-group">
-                  <input type="date" ng-disabled="!profile.edit" ng-model="profile.profile.birthDate" class="form-control  mb-2 mr-sm-2 mb-sm-0"
-                    id="birthDate" name="birthDate" placeholder="Date of Birth">
+                  <input type="date" ng-disabled="!profile.edit" ng-pattern="/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/" ng-model="profile.profile.birthDate"
+                    class="form-control  mb-2 mr-sm-2 mb-sm-0" id="birthDate" name="birthDate" placeholder="yyyy-MM-dd">
                 </div>
               </div>
             </div>
-            <!--div class="col-md-2">
-                  <div class="form-control-feedback">
-                    <span>
-                      <span ng-messages="profileForm.birthDate.$error" ng-show="profileForm.birthDate.$touched">
-                        <span class="badge badge-danger" ng-message="required">This is required</span>
-                      </span>
-                    </span>
-                  </div>
-                </div-->
+            <div class="col-md-2">
+              <div class="form-control-feedback">
+                <span>
+                  <span ng-messages="profileForm.birthDate.$error" ng-show="profileForm.birthDate.$error">
+                    <span class="badge badge-danger" ng-message="pattern">valid pattern yyyy-MM-dd</span>
+                  </span>
+                </span>
+              </div>
+            </div>
           </div>
 
           <div class="row">
@@ -320,7 +347,9 @@
             <div class="col-md-6 ">
               <div class="form-group ">
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
-                  <select ng-disabled="!profile.edit" class="form-control" ng-model="profile.profile.highestQualification" name="higestQualification"
+                  <input type="text" ng-disabled="!profile.edit" ng-model="profile.profile.highestQualification" class="form-control  mb-2 mr-sm-2 mb-sm-0"
+                    id="highestQualification" placeholder="">
+                  <!--select ng-disabled="!profile.edit" class="form-control" ng-model="profile.profile.highestQualification" name="higestQualification"
                     id="higestQualification">
 
 
@@ -362,11 +391,40 @@
                     <option value="Less than high school " id="cbf682 ">Less than high school</option>
                     <option value="Undergraduate " id="cbf683 ">Undergraduate</option>
                     <option value="Associates degree " id="cbf684 ">Associates degree</option>
-                  </select>
+                  </select-->
                 </div>
               </div>
             </div>
           </div>
+
+          <div class="row">
+            <div class="offset-md-2 col-md-2 field-lab-responsive">
+              <label for="Birth_Date">Profession</label>
+            </div>
+            <div class="col-md-6">
+              <div class="well">
+                <div class="form-group">
+                  <select name="business_service" ng-disabled="!profile.edit" ng-model="profile.profile.profession" required class="form-control "
+                    id="business_service ">
+                    <option value="">-</option>
+                    <option value="Business">Business</option>
+                    <option value="Service">Service</option>
+                    <option value="BOTH">Both</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-control-feedback">
+                <span>
+                  <span ng-messages="profileForm.sangh.$error" ng-show="registerForm.sangh.$error">
+                    <span class="badge badge-danger" ng-message="required">This is required</span>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+
           <div class="row">
             <div class="offset-md-2 col-md-2 field-label-responsive">
               <label for="Profession">Details of Service</label>
@@ -421,55 +479,55 @@
 
 
           <div class="row">
-              <div class="offset-md-2 col-md-2 field-label-responsive">
-                <label for="Profession">About Family</label>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <div class="input-group-addon" style="width: 2.6rem">
+            <div class="offset-md-2 col-md-2 field-label-responsive">
+              <label for="Profession">About Family</label>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
 
-                    </div>
-                    <input  ng-disabled="!profile.edit" type="string" style="height:70px" name="aboutFamily" ng-model="profile.profile.aboutFamily" class="form-control"
-                      id="aboutFamily" placeholder="About Family">
                   </div>
+                  <input ng-disabled="!profile.edit" type="string" style="height:70px" name="aboutFamily" ng-model="profile.profile.aboutFamily"
+                    class="form-control" id="aboutFamily" placeholder="About Family">
                 </div>
               </div>
             </div>
+          </div>
 
-            <div  class="row">
-              <div class="offset-md-2 col-md-2 field-label-responsive">
-                <label for="Profession">About Parents</label>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <div class="input-group-addon" style="width: 2.6rem">
+          <div class="row">
+            <div class="offset-md-2 col-md-2 field-label-responsive">
+              <label for="Profession">About Parents</label>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
 
-                    </div>
-                    <input  ng-disabled="!profile.edit" type="string" style="height:70px" name="aboutParents" ng-model="profile.profile.aboutParents" class="form-control"
-                      id="aboutParents" placeholder="About Parents">
                   </div>
+                  <input ng-disabled="!profile.edit" type="string" style="height:70px" name="aboutParents" ng-model="profile.profile.aboutParents"
+                    class="form-control" id="aboutParents" placeholder="About Parents">
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="row">
-              <div class="offset-md-2 col-md-2 field-label-responsive">
-                <label for="Profession">About Brother and Sister</label>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <div class="input-group-addon" style="width: 2.6rem">
+          <div class="row">
+            <div class="offset-md-2 col-md-2 field-label-responsive">
+              <label for="Profession">About Brother and Sister</label>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon" style="width: 2.6rem">
 
-                    </div>
-                    <input  ng-disabled="!profile.edit" type="string" style="height:70px" name="aboutBrotherSister" ng-model="profile.profile.aboutBrotherSister" class="form-control"
-                      id="aboutBrotherSister" placeholder="About brother and sister">
                   </div>
+                  <input ng-disabled="!profile.edit" type="string" style="height:70px" name="aboutBrotherSister" ng-model="profile.profile.aboutBrotherSister"
+                    class="form-control" id="aboutBrotherSister" placeholder="About brother and sister">
                 </div>
               </div>
             </div>
+          </div>
 
 
           <div ng-disabled="!profile.edit" class="row ">
@@ -479,46 +537,46 @@
             <div class="col-md-6 row" id="fatherNameGroup" style="margin:0px">
               <div class="form-group" class="col-md-2">
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
-                  <input type="text " ng-disabled="!profile.edit" ng-model="profile.profile.fatherFirstName" name="fatherFirstName" class="form-control"
-                    id="fatherFirstName" placeholder="First Name" required autofocus>
+                  <input type="text " ng-disabled="!profile.edit" capitalize ng-model="profile.profile.fatherFirstName" name="fatherFirstName"
+                    class="form-control" id="fatherFirstName" placeholder="First Name" required autofocus>
                 </div>
               </div>
               <div class="form-group" class="col-md-2">
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
-                  <input type="text " ng-disabled="!profile.edit" ng-model="profile.profile.fatherMiddleName" name="fatherMiddleName" class="form-control"
-                    id="fatherMiddleName" placeholder="Middle Name" required autofocus>
+                  <input type="text " ng-disabled="!profile.edit" capitalize ng-model="profile.profile.fatherMiddleName" name="fatherMiddleName"
+                    class="form-control" id="fatherMiddleName" placeholder="Middle Name" required autofocus>
                 </div>
               </div>
               <div class="form-group" class="col-md-2">
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
-                  <input type="text " ng-disabled="!profile.edit" ng-model="profile.profile.fatherLastName" name="fatherLastName" class="form-control"
-                    id="fatherLastName" placeholder="Last Name" required autofocus>
+                  <input type="text " ng-disabled="!profile.edit" capitalize ng-model="profile.profile.fatherLastName" name="fatherLastName"
+                    class="form-control" id="fatherLastName" placeholder="Last Name" required autofocus>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="row ">
+          <div ng-show="profile.profile.vadhuVarMelava== 'false' && profile.profile.maritalStatus=='Married'" class="row ">
             <div class="offset-md-2 col-md-2 field-label-responsive ">
               <label for="name ">Spouse Name</label>
             </div>
             <div class="col-md-6 row" id="fatherNameGroup" style="margin:0px">
               <div class="form-group" class="col-md-2">
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
-                  <input type="text " ng-disabled="!profile.edit" ng-model="profile.profile.spouseFirstName" name="spouseFirstName" class="form-control"
-                    id="spouseFirstName" placeholder="First Name" required autofocus>
+                  <input type="text " ng-disabled="!profile.edit" capitalize ng-model="profile.profile.spouseFirstName" name="spouseFirstName"
+                    class="form-control" id="spouseFirstName" placeholder="First Name" required autofocus>
                 </div>
               </div>
               <div class="form-group" class="col-md-2">
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
-                  <input type="text " ng-disabled="!profile.edit" ng-model="profile.profile.spouseMiddleName" name="spouseMiddleName" class="form-control"
-                    id="spouseMiddleName" placeholder="Middle Name" required autofocus>
+                  <input type="text " ng-disabled="!profile.edit" capitalize ng-model="profile.profile.spouseMiddleName" name="spouseMiddleName"
+                    class="form-control" id="spouseMiddleName" placeholder="Middle Name" required autofocus>
                 </div>
               </div>
               <div class="form-group" class="col-md-2">
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
-                  <input type="text " ng-disabled="!profile.edit" ng-model="profile.profile.spouseLastName" name="spouseLastName" class="form-control"
-                    id="spouseLastName" placeholder="Last Name" required autofocus>
+                  <input type="text " ng-disabled="!profile.edit" capitalize ng-model="profile.profile.spouseLastName" name="spouseLastName"
+                    class="form-control" id="spouseLastName" placeholder="Last Name" required autofocus>
                 </div>
               </div>
             </div>
@@ -531,20 +589,20 @@
             <div class="col-md-6 row" id="motherrNameGroup" style="margin:0px">
               <div class="form-group" class="col-md-2">
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
-                  <input type="text " ng-disabled="!profile.edit" ng-model="profile.profile.motherFirstName" name="motherFirstName" class="form-control"
-                    id="motherFirstName" placeholder="First Name" required autofocus>
+                  <input type="text " ng-disabled="!profile.edit" capitalize ng-model="profile.profile.motherFirstName" name="motherFirstName"
+                    class="form-control" id="motherFirstName" placeholder="First Name" required autofocus>
                 </div>
               </div>
               <div class="form-group" class="col-md-2">
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
-                  <input type="text " ng-disabled="!profile.edit" ng-model="profile.profile.motherMiddleName" name="motherMiddleName" class="form-control"
-                    id="motherMiddleName" placeholder="Middle Name" required autofocus>
+                  <input type="text " ng-disabled="!profile.edit" capitalize ng-model="profile.profile.motherMiddleName" name="motherMiddleName"
+                    class="form-control" id="motherMiddleName" placeholder="Middle Name" required autofocus>
                 </div>
               </div>
               <div class="form-group" class="col-md-2">
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0 ">
-                  <input type="text " ng-disabled="!profile.edit" ng-model="profile.profile.motherLastName" name="motherLastName" class="form-control"
-                    id="motherLastName" placeholder="Last Name" required autofocus>
+                  <input type="text " ng-disabled="!profile.edit" capitalize ng-model="profile.profile.motherLastName" name="motherLastName"
+                    class="form-control" id="motherLastName" placeholder="Last Name" required autofocus>
                 </div>
               </div>
             </div>
@@ -592,6 +650,7 @@
                     <option value="Not Employed">Not Employed</option>
                     <option value="Retired">Retired</option>
                     <option value="Expired">Expired</option>
+                    <option value="HouseWife">HouseWife</option>
                   </select>
                 </div>
               </div>
@@ -616,6 +675,11 @@
                     <option value="Nashik">Nashik</option>
                     <option value="Mumbai">Mumbai</option>
                     <option value="Amalner">Amalner</option>
+                    <option value="Indore">Indore</option>
+                    <option value="Yavatmal">Yavatmal</option>
+                    <option value="Akola">Akola</option>
+                    <option value="Nandurbar">Nandurbar</option>
+                    <option value="Burhanpur">Burhanpur</option>
                   </select>
                 </div>
               </div>
@@ -623,7 +687,7 @@
             <div class="col-md-2">
               <div class="form-control-feedback">
                 <span>
-                  <span ng-messages="profileForm.sangh.$error" ng-show="profileForm.sangh.$touched">
+                  <span ng-messages="profileForm.sangh.$error" ng-show="profileForm.sangh.$error">
                     <span class="badge badge-danger" ng-message="required">This is required</span>
                   </span>
                 </span>
@@ -638,7 +702,7 @@
             <div class="col-md-6">
               <div class="well">
                 <div class="form-group">
-                  <select id="bloodGroup" name="bloodGroup" ng-model="profile.profile.bloodGroup" required class="form-control">
+                  <select ng-disabled="!profile.edit" id="bloodGroup" name="bloodGroup" ng-model="profile.profile.bloodGroup" required class="form-control">
                     <option value="">-</option>
                     <option value="O-positive">O-positive</option>
                     <option value="O-negative">O-negative</option>
@@ -655,7 +719,32 @@
             <div class="col-md-2">
               <div class="form-control-feedback">
                 <span>
-                  <span ng-messages="profileForm.bloodGroup.$error" ng-show="registerForm.bloodGroup.$touched">
+                  <span ng-messages="profileForm.bloodGroup.$error" ng-show="registerForm.bloodGroup.$error">
+                    <span class="badge badge-danger" ng-message="required">This is required</span>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="offset-md-2 col-md-2 field-lab-responsive">
+              <label for="Birth_Date">Matrimonial Profile</label>
+            </div>
+            <div class="col-md-6">
+              <div class="well">
+                <div class="form-group">
+                  <select ng-disabled="!profile.edit" id="vadhuVarMelava" name="vadhuVarMelava" ng-model="profile.profile.vadhuVarMelava" required class="form-control">
+                    <option value="true">true</option>
+                    <option value="false">false</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-control-feedback">
+                <span>
+                  <span ng-messages="profileForm.vadhuVarMelava.$error" ng-show="registerForm.vadhuVarMelava.$error">
                     <span class="badge badge-danger" ng-message="required">This is required</span>
                   </span>
                 </span>
@@ -678,7 +767,7 @@
             <!--div class="col-md-2">
               <div class="form-control-feedback">
                 <span>
-                  <span ng-messages="profileForm.sangh.$error" ng-show="profileForm.sangh.$touched">
+                  <span ng-messages="profileForm.sangh.$error" ng-show="profileForm.sangh.$error">
                     <span class="badge badge-danger" ng-message="required">This is required</span>
                   </span>
                 </span>
@@ -689,7 +778,7 @@
 
           <div class="row">
             <div class="offset-md-2 col-md-2 field-lab-responsive">
-              <label for="Birth_Date">How can you contribute with you expertise/service/business to samaj bandhav.</label>
+              <label for="Birth_Date">How can you contribute with your expertise/service/business to samaj bandhav.</label>
             </div>
             <div class="col-md-6">
               <div class="well">
@@ -702,7 +791,7 @@
             <!--div class="col-md-2">
               <div class="form-control-feedback">
                 <span>
-                  <span ng-messages="profileForm.sangh.$error" ng-show="profileForm.sangh.$touched">
+                  <span ng-messages="profileForm.sangh.$error" ng-show="profileForm.sangh.$error">
                     <span class="badge badge-danger" ng-message="required">This is required</span>
                   </span>
                 </span>
@@ -732,7 +821,7 @@
                 </div>
                 <div class="col-md-2">
                   <div class="form-control-feedback">
-                    <span ng-messages="profileForm.serviceAddress.$error" ng-show="profileForm.serviceAddress.$touched">
+                    <span ng-messages="profileForm.serviceAddress.$error" ng-show="profileForm.serviceAddress.$error">
                       <span class="badge badge-danger" ng-message="required">This is required</span>
                     </span>
                   </div>
@@ -746,7 +835,7 @@
                   <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                       <input type="string" ng-disabled="!profile.edit" name="serviceAddressCity" ng-model="profile.profile.serviceAddress.city"
-                        class="form-control" id="serviceAddressCity" placeholder="" required>
+                        class="form-control" id="serviceAddressCity" placeholder="">
                     </div>
                   </div>
                 </div>
@@ -757,7 +846,7 @@
                   <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                       <input type="string" ng-disabled="!profile.edit" name="serviceAddressState" ng-model="profile.profile.serviceAddress.state"
-                        class="form-control" id="serviceAddressState" placeholder="" required>
+                        class="form-control" id="serviceAddressState" placeholder="">
                     </div>
                   </div>
                 </div>
@@ -765,14 +854,14 @@
               <div class="row" style="margin:0px">
                 <div class="offset-md-2 col-md-4">
                   <div class="form-control-feedback">
-                    <span ng-messages="profileForm.serviceAddressCity.$error" ng-show="profileForm.serviceAddressCity.$touched">
+                    <span ng-messages="profileForm.serviceAddressCity.$error" ng-show="profileForm.serviceAddressCity.$error">
                       <span class="badge badge-danger" ng-message="required">This is required</span>
                     </span>
                   </div>
                 </div>
                 <div class="offset-md-2 col-md-4">
                   <div class="form-control-feedback">
-                    <span ng-messages="profileForm.serviceAddressState.$error" ng-show="profileForm.serviceAddressState.$touched">
+                    <span ng-messages="profileForm.serviceAddressState.$error" ng-show="profileForm.serviceAddressState.$error">
                       <span class="badge badge-danger" ng-message="required">This is required</span>
                     </span>
                   </div>
@@ -786,7 +875,7 @@
                   <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                       <input type="string" ng-disabled="!profile.edit" name="serviceAddressZipCode" ng-model="profile.profile.serviceAddress.zipCode"
-                        class="form-control" id="serviceAddressZipCode" placeholder="Zip code" required>
+                        class="form-control" id="serviceAddressZipCode" placeholder="Zip code">
                     </div>
                   </div>
                 </div>
@@ -797,7 +886,7 @@
                   <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                       <input type="string" ng-disabled="!profile.edit" name="serviceAddressCountry" ng-model="profile.profile.serviceAddress.country"
-                        class="form-control" id="serviceAddressCountry" placeholder="" required>
+                        class="form-control" id="serviceAddressCountry" placeholder="">
                     </div>
                   </div>
                 </div>
@@ -805,14 +894,14 @@
               <div class="row" style="margin:0px">
                 <div class="offset-md-2 col-md-4">
                   <div class="form-control-feedback">
-                    <span ng-messages="profileForm.serviceAddressZipcode.$error" ng-show="profileForm.serviceAddressZipcode.$touched">
+                    <span ng-messages="profileForm.serviceAddressZipcode.$error" ng-show="profileForm.serviceAddressZipcode.$error">
                       <span class="badge badge-danger" ng-message="required">This is required</span>
                     </span>
                   </div>
                 </div>
                 <div class="offset-md-2 col-md-4">
                   <div class="form-control-feedback">
-                    <span ng-messages="profileForm.serviceAddressCountry.$error" ng-show="profileForm.serviceAddressCountry.$touched">
+                    <span ng-messages="profileForm.serviceAddressCountry.$error" ng-show="profileForm.serviceAddressCountry.$error">
                       <span class="badge badge-danger" ng-message="required">This is required</span>
                     </span>
                   </div>
@@ -829,12 +918,12 @@
 
                     </div>
                     <input type="string" ng-disabled="!profile.edit" name="currentAddress" ng-model="profile.profile.currentAddress.line" class="form-control"
-                      id="currentAddress" placeholder="" required>
+                      id="currentAddress" placeholder="">
                   </div>
                 </div>
                 <div class="col-md-2">
                   <div class="form-control-feedback">
-                    <span ng-messages="profileForm.currentAddress.$error" ng-show="profileForm.currentAddress.$touched">
+                    <span ng-messages="profileForm.currentAddress.$error" ng-show="profileForm.currentAddress.$error">
                       <span class="badge badge-danger" ng-message="required">This is required</span>
                     </span>
                   </div>
@@ -868,14 +957,14 @@
               <div class="row" style="margin:0px">
                 <div class="offset-md-2 col-md-4">
                   <div class="form-control-feedback">
-                    <span ng-messages="profileForm.currentAddressCity.$error" ng-show="profileForm.currentAddressCity.$touched">
+                    <span ng-messages="profileForm.currentAddressCity.$error" ng-show="profileForm.currentAddressCity.$error">
                       <span class="badge badge-danger" ng-message="required">This is required</span>
                     </span>
                   </div>
                 </div>
                 <div class="offset-md-2 col-md-4">
                   <div class="form-control-feedback">
-                    <span ng-messages="profileForm.currentAddressState.$error" ng-show="profileForm.currentAddressState.$touched">
+                    <span ng-messages="profileForm.currentAddressState.$error" ng-show="profileForm.currentAddressState.$error">
                       <span class="badge badge-danger" ng-message="required">This is required</span>
                     </span>
                   </div>
@@ -910,14 +999,14 @@
               <div class="row" style="margin:0px">
                 <div class="offset-md-2 col-md-4">
                   <div class="form-control-feedback">
-                    <span ng-messages="profileForm.currentAddressZipcode.$error" ng-show="profileForm.currentAddressZipcode.$touched">
+                    <span ng-messages="profileForm.currentAddressZipcode.$error" ng-show="profileForm.currentAddressZipcode.$error">
                       <span class="badge badge-danger" ng-message="required">This is required</span>
                     </span>
                   </div>
                 </div>
                 <div class="offset-md-2 col-md-4">
                   <div class="form-control-feedback">
-                    <span ng-messages="profileForm.currentAddressCountry.$error" ng-show="profileForm.currentAddressCountry.$touched">
+                    <span ng-messages="profileForm.currentAddressCountry.$error" ng-show="profileForm.currentAddressCountry.$error">
                       <span class="badge badge-danger" ng-message="required">This is required</span>
                     </span>
                   </div>
@@ -939,7 +1028,7 @@
                 </div>
                 <div class="col-md-2">
                   <div class="form-control-feedback">
-                    <span ng-messages="profileForm.permanentAddress.$error" ng-show="profileForm.permanentAddress.$touched">
+                    <span ng-messages="profileForm.permanentAddress.$error" ng-show="profileForm.permanentAddress.$error">
                       <span class="badge badge-danger" ng-message="required">This is required</span>
                     </span>
                   </div>
@@ -973,14 +1062,14 @@
               <div class="row" style="margin:0px">
                 <div class="offset-md-2 col-md-4">
                   <div class="form-control-feedback">
-                    <span ng-messages="profileForm.permanentAddressCity.$error" ng-show="profileForm.permanentAddressCity.$touched">
+                    <span ng-messages="profileForm.permanentAddressCity.$error" ng-show="profileForm.permanentAddressCity.$error">
                       <span class="badge badge-danger" ng-message="required">This is required</span>
                     </span>
                   </div>
                 </div>
                 <div class="offset-md-2 col-md-4">
                   <div class="form-control-feedback">
-                    <span ng-messages="profileForm.permanentAddressState.$error" ng-show="profileForm.permanentAddressState.$touched">
+                    <span ng-messages="profileForm.permanentAddressState.$error" ng-show="profileForm.permanentAddressState.$error">
                       <span class="badge badge-danger" ng-message="required">This is required</span>
                     </span>
                   </div>
@@ -1013,14 +1102,14 @@
               <div class="row" style="margin:0px">
                 <div class="offset-md-2 col-md-4">
                   <div class="form-control-feedback">
-                    <span ng-messages="profileForm.permanentAddressZipcode.$error" ng-show="profileForm.permanentAddressZipcode.$touched">
+                    <span ng-messages="profileForm.permanentAddressZipcode.$error" ng-show="profileForm.permanentAddressZipcode.$error">
                       <span class="badge badge-danger" ng-message="required">This is required</span>
                     </span>
                   </div>
                 </div>
                 <div class="offset-md-2 col-md-4">
                   <div class="form-control-feedback">
-                    <span ng-messages="profileForm.permanentAddressCountry.$error" ng-show="profileForm.permanentAddressCountry.$touched">
+                    <span ng-messages="profileForm.permanentAddressCountry.$error" ng-show="profileForm.permanentAddressCountry.$error">
                       <span class="badge badge-danger" ng-message="required">This is required</span>
                     </span>
                   </div>
@@ -1030,8 +1119,8 @@
           </div>
           <div ng-if="profile.self" class="row text-white py-4">
             <div class="offset-md-5 col-md-3">
-              <button  title="Please fill the required fields in the form then button will be enabled."
-                type="button" ng-click="profile.save(profileForm);" class="btn btn-primary">
+              <button title="Please fill the required fields in the form then button will be enabled." type="button" ng-click="profile.save(profileForm);"
+                class="btn btn-primary">
                 <i class="fa fa-user-plus"></i> Save</button>
               <!--button ng-show="!profileForm.$error" type="submit" class="btn btn-primary">
                     <i class="fa fa-user-plus"></i> Register</button-->
@@ -1048,16 +1137,16 @@
                   <th>Firstname</th>
                   <th>MiddleName</th>
                   <th>LastName</th>
-                  <th>E-Mail</th>
+                  <th>Email</th>
                   <th>Mobile Number</th>
                   <th>Gender</th>
                   <th>Relation</th>
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="person in profile.searchDataChildren._embedded.personList">
+                <tr ng-repeat="person in profile.searchChildrenData._embedded.personList">
                   <td>
-                    <a href="#!/profile/{{person.email}}">{{person.id}}</a>
+                    <a href="#!/profile/{{person.id}}">{{person.id}}</a>
                   </td>
                   <td>{{person.firstName}}</td>
                   <td>{{person.middleName}}</td>
@@ -1069,7 +1158,7 @@
                 </tr>
                 <tr ng-repeat="person in profile.searchDataSibling._embedded.personList">
                   <td>
-                    <a href="#!/profile/{{person.email}}">{{person.id}}</a>
+                    <a href="#!/profile/{{person.id}}">{{person.id}}</a>
                   </td>
                   <td>{{person.firstName}}</td>
                   <td>{{person.middleName}}</td>
@@ -1079,9 +1168,9 @@
                   <td>{{person.gender}}</td>
                   <td>Brother/Sister</td>
                 </tr>
-                <tr ng-repeat="person in browse.searchDataPaternal._embedded.personList">
+                <tr ng-repeat="person in profile.searchDataPaternal._embedded.personList">
                   <td>
-                    <a href="#!/profile/{{person.email}}">{{person.id}}</a>
+                    <a href="#!/profile/{{person.id}}">{{person.id}}</a>
                   </td>
                   <td>{{person.firstName}}</td>
                   <td>{{person.middleName}}</td>
@@ -1089,13 +1178,12 @@
                   <td>{{person.email}}</td>
                   <td>{{person.mobileNo}}</td>
                   <td>{{person.gender}}</td>
-                  <td>{{person.gender}}</td>
-                  <td>Paternal Uncle/Anuti</td>
+                  <td>{{ (profile.profile.fatherFirstName=== person.firstName && profile.profile.fatherMiddleName=== person.middleName && profile.profile.fatherLastName === person.lastName )? 'Father' : 'Paternal Uncle/Anuti'}}</td>
                 </tr>
 
-                <tr ng-repeat="person in browse.searchDataMaternal._embedded.personList">
+                <tr ng-repeat="person in profile.searchDataMaternal._embedded.personList">
                   <td>
-                    <a href="#!/profile/{{person.email}}">{{person.id}}</a>
+                    <a href="#!/profile/{{person.id}}">{{person.id}}</a>
                   </td>
                   <td>{{person.firstName}}</td>
                   <td>{{person.middleName}}</td>
@@ -1103,58 +1191,53 @@
                   <td>{{person.email}}</td>
                   <td>{{person.mobileNo}}</td>
                   <td>{{person.gender}}</td>
-                  <td>{{person.gender}}</td>
-                  <td>Maternal Uncle/Anuti</td>
+                  <td>{{(profile.profile.motherFirstName=== person.firstName && profile.profile.motherMiddleName=== person.middleName && profile.profile.motherLastName === person.lastName )? 'Mother' : 'Maternal Uncle/Anuti'}}</td>
                 </tr>
-                <tr ng-repeat="person in browse.searchDataPaternalGrandFather._embedded.personList">
+                <tr ng-repeat="person in profile.searchDataPaternalGrandFather._embedded.personList">
                   <td>
-                    <a href="#!/profile/{{person.email}}">{{person.id}}</a>
+                    <a href="#!/profile/{{person.id}}">{{person.id}}</a>
                   </td>
                   <td>{{person.firstName}}</td>
                   <td>{{person.middleName}}</td>
                   <td>{{person.lastName}}</td>
                   <td>{{person.email}}</td>
                   <td>{{person.mobileNo}}</td>
-                  <td>{{person.gender}}</td>
                   <td>{{person.gender}}</td>
                   <td>Paternal GrandFather </td>
                 </tr>
-                <tr ng-repeat="person in browse.searchDataPaternalGrandMother._embedded.personList">
+                <tr ng-repeat="person in profile.searchDataPaternalGrandMother._embedded.personList">
                   <td>
-                    <a href="#!/profile/{{person.email}}">{{person.id}}</a>
+                    <a href="#!/profile/{{person.id}}">{{person.id}}</a>
                   </td>
                   <td>{{person.firstName}}</td>
                   <td>{{person.middleName}}</td>
                   <td>{{person.lastName}}</td>
                   <td>{{person.email}}</td>
                   <td>{{person.mobileNo}}</td>
-                  <td>{{person.gender}}</td>
                   <td>{{person.gender}}</td>
                   <td>Paternal GrandMother </td>
                 </tr>
-                <tr ng-repeat="person in browse.searchDataPaternalGrandFather._embedded.personList">
+                <tr ng-repeat="person in profile.searchDatMaternalGrandFather._embedded.personList">
                   <td>
-                    <a href="#!/profile/{{person.email}}">{{person.id}}</a>
+                    <a href="#!/profile/{{person.id}}">{{person.id}}</a>
                   </td>
                   <td>{{person.firstName}}</td>
                   <td>{{person.middleName}}</td>
                   <td>{{person.lastName}}</td>
                   <td>{{person.email}}</td>
                   <td>{{person.mobileNo}}</td>
-                  <td>{{person.gender}}</td>
                   <td>{{person.gender}}</td>
                   <td>Maternal GrandFather</td>
                 </tr>
-                <tr ng-repeat="person in browse.searchDataPaternalGrandMother._embedded.personList">
+                <tr ng-repeat="person in profile.searchDataMaternalGrandMother._embedded.personList">
                   <td>
-                    <a href="#!/profile/{{person.email}}">{{person.id}}</a>
+                    <a href="#!/profile/{{person.id}}">{{person.id}}</a>
                   </td>
                   <td>{{person.firstName}}</td>
                   <td>{{person.middleName}}</td>
                   <td>{{person.lastName}}</td>
                   <td>{{person.email}}</td>
                   <td>{{person.mobileNo}}</td>
-                  <td>{{person.gender}}</td>
                   <td>{{person.gender}}</td>
                   <td>Maternal GrandMother</td>
                 </tr>

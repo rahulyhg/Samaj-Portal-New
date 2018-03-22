@@ -41,6 +41,7 @@
 				register: $resource(urlBase + '/samaj/register'),
 				browse: $resource(urlBase + '/samaj/filter'),
 				browseAll: $resource(urlBase + '/samaj/all'),
+				changePassword: $resource(urlBase + '/samaj/changePassword'),
 				profile: $resource(urlBase + '/samaj/profile/:id',{},{
 					update:{
 						method:'PUT'
