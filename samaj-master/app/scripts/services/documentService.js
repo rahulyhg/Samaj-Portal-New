@@ -1,5 +1,5 @@
 'use strict';
-angular.module('samajPortalApp').factory('docService', ['$http', '$q', 'urls','$location',function ($http, $q, urls,$location) {
+angular.module('samajPortalApp').factory('docService', ['$http', '$q', 'urls', '$location', function ($http, $q, urls, $location) {
   var urlBase = $location.protocol() + '://' + $location.host() + ':' + $location.port();
   if ($location.port() === 9000) {
     urlBase = $location.protocol() + '://' + $location.host() + ':8080';
@@ -11,21 +11,39 @@ angular.module('samajPortalApp').factory('docService', ['$http', '$q', 'urls','$
     var formData = new FormData();
     formData.append('file', file);
 
-    $http.post(urlBase + '/doc/upload/' + id, formData, {
-        transformRequest: angular.identity,
-        headers: {
-          'Content-Type': undefined
-        }
-      })
-      .then(
-        function (response) {
-          deferred.resolve(response.data);
-        },
-        function (errResponse) {
-          window.alert(errResponse.data.errorMessage);
-          deferred.reject(errResponse);
-        }
-      );
+    if (id) {
+      $http.post(urlBase + '/doc/upload/' + id, formData, {
+          transformRequest: angular.identity,
+          headers: {
+            'Content-Type': undefined
+          }
+        })
+        .then(
+          function (response) {
+            deferred.resolve(response.data);
+          },
+          function (errResponse) {
+            window.alert(errResponse.data.errorMessage);
+            deferred.reject(errResponse);
+          }
+        );
+    } else {
+      $http.post(urlBase + '/doc/upload', formData, {
+          transformRequest: angular.identity,
+          headers: {
+            'Content-Type': undefined
+          }
+        })
+        .then(
+          function (response) {
+            deferred.resolve(response.data);
+          },
+          function (errResponse) {
+            window.alert('errResponse',errResponse);
+            deferred.reject(errResponse);
+          }
+        );
+    }
     return deferred.promise;
   }
 
@@ -37,7 +55,7 @@ angular.module('samajPortalApp').factory('docService', ['$http', '$q', 'urls','$
           deferred.resolve(response.data);
         },
         function (errResponse) {
-          window.alert(errResponse.data.errorMessage);
+          window.alert('errResponse',errResponse);
           deferred.reject(errResponse);
         }
       );

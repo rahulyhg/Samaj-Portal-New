@@ -28,6 +28,7 @@ import com.sample.samaj.portal.model.Person;
 import com.sample.samaj.portal.pojo.ChangePassword;
 import com.sample.samaj.portal.pojo.DocumentBase64;
 import com.sample.samaj.portal.pojo.Filter;
+import com.sample.samaj.portal.repository.DocumentRepository;
 import com.sample.samaj.portal.repository.PersonRepository;
 import com.sample.samaj.portal.repository.SearchCriteria;
 import com.sample.samaj.portal.repository.UserSpecification;
@@ -38,6 +39,8 @@ public class MainController {
 	@Autowired
 	private PersonRepository personRepository;
 	
+	@Autowired
+	private DocumentRepository documentRepository;
 	@Autowired
 	private MyPasswordEncoder bCryptPasswordEncoder;
 
@@ -111,6 +114,9 @@ public class MainController {
 	
 	@PostMapping(path = "/register")
 	public Person register(@RequestBody Person person) {
+		String password=person.getConfirmPassword();
+		person.setPassword(password);
+		person.setImage(documentRepository.findById(person.getImageId()).get());
 		person.setPassword(bCryptPasswordEncoder.encode(person.getPassword()));
 		return personRepository.save(person);
 	}

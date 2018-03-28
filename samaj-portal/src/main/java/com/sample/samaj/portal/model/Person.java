@@ -33,6 +33,7 @@ public class Person {
     @Column(name = "USERNAME",unique= true)
     private String userName;
     
+    @JsonIgnore
     @Column(name = "PASSWORD")
     private String password;
     
@@ -175,6 +176,8 @@ public class Person {
     @JoinColumn(name="IMAGE")
     private Document image;
     
+    private long imageId;
+    private String confirmPassword;
     
     @Column(name = "ABOUT_FAMILY")
     private String aboutFamily;
@@ -210,6 +213,24 @@ public class Person {
 
 	public void setExpertiseContribution(String expertiseContribution) {
 		this.expertiseContribution = expertiseContribution;
+	}
+	
+	
+	
+	public long getImageId() {
+		return imageId;
+	}
+
+	public void setImageId(long imageId) {
+		this.imageId = imageId;
+	}
+
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
 
 	public Long getId() {

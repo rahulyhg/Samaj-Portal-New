@@ -10,7 +10,9 @@ import java.util.List;
 public interface DocumentService {
 
     ResponseMetadata save(MultipartFile multipartFile,long id) throws IOException;
-
+    
+    Document save(MultipartFile file) throws IOException;
+    
     byte[] getDocumentFile(Long id);
 
     List<Document> findAll();

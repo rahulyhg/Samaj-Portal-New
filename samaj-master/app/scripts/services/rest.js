@@ -47,7 +47,8 @@
 						method:'PUT'
 					}
 				}),
-				document: $resource(urlBase + '/samaj/document/:id')
+				document: $resource(urlBase + '/samaj/document/:id'),
+				registerDocument: $resource(urlBase + '/samaj/document')
             };
 		}]);
 })();
