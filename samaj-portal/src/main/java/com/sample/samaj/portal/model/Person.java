@@ -1,5 +1,6 @@
 package com.sample.samaj.portal.model;
  
+
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -176,7 +177,9 @@ public class Person {
     @JoinColumn(name="IMAGE")
     private Document image;
     
+    @Transient
     private long imageId;
+    @Transient
     private String confirmPassword;
     
     @Column(name = "ABOUT_FAMILY")
