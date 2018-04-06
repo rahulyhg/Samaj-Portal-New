@@ -116,7 +116,9 @@ public class MainController {
 	public Person register(@RequestBody Person person) {
 		String password=person.getConfirmPassword();
 		person.setPassword(password);
-		person.setImage(documentRepository.findById(person.getImageId()).get());
+		if(person.getImageId() !=0 ){
+			person.setImage(documentRepository.findById(person.getImageId()).get());
+		}
 		person.setPassword(bCryptPasswordEncoder.encode(person.getPassword()));
 		return personRepository.save(person);
 	}
